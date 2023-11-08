@@ -61,12 +61,16 @@ fun sistema(bd:Repositorio, looca: Looca, ip:String){
                     println("\n\rEstamos monitorando sua máquina.\n\r")
                     // val (arquivo1, arquivo2) = ScriptPython.criarPython(aMonitorar.python(), pc.idDispositivo,
                     //ScriptPython.executarScript(arquivo1,arquivo2)
-                    //Runtime.getRuntime().addShutdownHook(Thread {
-                       // println("O monitoramento foi finalizado")
+                    Runtime.getRuntime().addShutdownHook(Thread {
+                        println("O monitoramento foi finalizado")
                        // ScriptPython.pararScript()
-                   // })
-                        while (true) {
+                    })
 
+                    capturarDadosDeCPU()
+
+
+                        while (true) {
+                            capturarPorcentagemDeUsoDaCPU()
                             println("\n\r")
                             Thread.sleep(5000)
                         }

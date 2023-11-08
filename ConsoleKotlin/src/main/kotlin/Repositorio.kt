@@ -34,13 +34,11 @@ class Repositorio {
         (${sistema.idUser}, ${pc.idDispositivo}, 1)
         """)
     }
-    fun monitoramento(dado:Double, componenteJanela:Int, pc:Computador){
-        bd.update(
-            """
-            insert into monitoramento(dadoCapturado,fkComponente,fkDispositivo) values
-            ($dado, $componenteJanela, ${pc.idDispositivo})
-            """
-        )
+    fun insertDadosCPU(pc:Computador, nomeCPU: CPU, porcentagemUsoCPU:CPU, dataHoraCaptura:CPU, fkDispositivo:CPU){
+        bd!!.execute("""
+            insert into dados_cpu(nomeCPU,frequenciaCPU,porcentagemUsoCPU, dataHoraCaptura, fkDispositivo) value
+	            (${nomeCPU}, ${porcentagemUsoCPU}, ${dataHoraCaptura}, ${pc});
+        """)
     }
 
 

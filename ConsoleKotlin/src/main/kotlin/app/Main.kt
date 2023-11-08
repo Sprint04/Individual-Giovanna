@@ -1,7 +1,6 @@
 package app
 
 import Repositorio
-import cadastro
 import com.github.britooo.looca.api.core.Looca
 import sistema
 
@@ -14,13 +13,7 @@ open class Main {
             bd.iniciar()
 
             val ip = looca.rede.parametros.hostName
-            val token = bd.validarDispositivo(ip)
-            if(token){
-                sistema(bd, looca, ip)
-            } else{
-                cadastro(bd, looca, ip)
-            }
-
+            sistema(bd, looca, ip)
         }
     }
 }

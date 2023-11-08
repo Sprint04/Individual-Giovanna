@@ -7,10 +7,4 @@ fun main() {
     bd.iniciar()
 
     val ip = looca.rede.parametros.hostName
-    val token = bd.validarDispositivo(ip)
-    if(token){
-        sistema(bd, looca, ip)
-    } else{
-        cadastro(bd, looca, ip)
-    }
 }
