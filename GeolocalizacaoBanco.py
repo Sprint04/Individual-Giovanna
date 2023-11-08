@@ -2,6 +2,9 @@
 import geocoder
 # Importa a biblioteca que faz conexão com o BD
 import mysql.connector
+# Importa as bibliotecas que captura data e hora
+from datetime import date
+from datetime import datetime
 
 # Função para estabelecer uma conexão com o banco de dados MySQL
 def connect_to_mysql():
@@ -38,25 +41,31 @@ def get_location_by_ip(conexao):
             print(f"Localização: {location}")
             print(f"Latitude: {latitude}")
             print(f"Longitude: {longitude}")
+       # Captura as informações de data e hora do momento da captura
+            data_atual = date.today()
+            dataBR = '{}/{}/{}'.format(data_atual.day, data_atual.month, data_atual.year)
+            hora_atual = datetime.now()
+            horaBR = hora_atual.strftime("%H:%M:%S")
+            print("Data da captura: ",dataBR, "Hora da captura: ", horaBR)
 
             # Insere as informações de localização no banco de dados MySQL
-            insert_location_in_mysql(conexao, location, latitude, longitude)
+            insert_location_in_mysql(conexao, location, latitude, longitude, data_atual, hora_atual)
         else:
             print("Não foi possível obter a localização com base no IP.")
     except Exception as e:
         print(f"Erro ao obter a localização: {str(e)}")
 
 # Função para inserir informações de localização no banco de dados MySQL
-def insert_location_in_mysql(conexao, location, latitude, longitude):
+def insert_location_in_mysql(conexao, location, latitude, longitude, data_atual, hora_atual):
     try:
         # Cria um cursor para executar comandos SQL
         cursor = conexao.cursor()
 
         # Está definindo a consulta SQL para inserir dados na tabela do banco de dados
-        inserir_dados = "INSERT INTO local (localizacao, latitude, longitude) VALUES (%s, %s, %s)"
+        inserir_dados = "INSERT INTO local (localizacao, latitude, longitude, data_atual, hora_atual) VALUES (%s, %s, %s, %s, %s)"
 
         # Valores a serem inseridos
-        valores = (location, latitude, longitude)
+        valores = (location, latitude, longitude, data_atual, hora_atual)
 
         # Executa a consulta com os valores
         cursor.execute(inserir_dados, valores)
