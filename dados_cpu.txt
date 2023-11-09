@@ -1,0 +1,8 @@
+CREATE TABLE dados_cpu (
+idDadosCPU INT PRIMARY KEY AUTO_INCREMENT,
+nomeCPU VARCHAR(200),
+porcentagemUsoCPU float,
+dataHoraCaptura varchar(100),
+fkDispositivo INT,
+FOREIGN KEY (fkDispositivo) REFERENCES dispositivo(idDispositivo)
+);
