@@ -382,9 +382,18 @@ create table ocorrencias(
 CREATE TABLE dados_cpu (
     idDadosCPU INT PRIMARY KEY AUTO_INCREMENT,
     nomeCPU VARCHAR(200),
-    frequenciaCPU DECIMAL(5, 2),
     porcentagemUsoCPU DECIMAL(5, 2),
     dataHoraCaptura DATETIME,
     fkDispositivo INT,
     FOREIGN KEY (fkDispositivo) REFERENCES dispositivo(idDispositivo)
 );
+
+alter table dados_cpu modify column porcentagemUsoCPU varchar(50);
+
+desc dados_cpu;
+
+select* from geolocalizacao;
+select * from dados_cpu;
+
+use trackware;
+
