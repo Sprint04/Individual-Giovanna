@@ -5,8 +5,8 @@ object ScriptPython {
     var PythonExe: List<Process> = listOf()
 
     val host = "localhost"
-    val user = "testes"
-    val passwd = "12345678"
+    val user = "root"
+    val passwd = "root"
     val database = "trackware"
 
     fun criarPython(python:String, maquina:Int, cpu:String, disk:String, memoria:String): Pair<String, String> {

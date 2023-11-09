@@ -14,6 +14,7 @@ open class Main {
 
             val ip = looca.rede.parametros.hostName
             sistema(bd, looca, ip)
+
         }
     }
 }

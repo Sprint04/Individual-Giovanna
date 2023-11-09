@@ -34,10 +34,10 @@ class Repositorio {
         (${sistema.idUser}, ${pc.idDispositivo}, 1)
         """)
     }
-    fun insertDadosCPU(pc:Computador, nomeCPU: CPU, porcentagemUsoCPU:CPU, dataHoraCaptura:CPU, fkDispositivo:CPU){
+    fun insertDadosCPU(pc:Computador, dados:CPU){
         bd!!.execute("""
-            insert into dados_cpu(nomeCPU,frequenciaCPU,porcentagemUsoCPU, dataHoraCaptura, fkDispositivo) value
-	            (${nomeCPU}, ${porcentagemUsoCPU}, ${dataHoraCaptura}, ${pc});
+            insert into dados_cpu(nomeCPU,porcentagemUsoCPU, dataHoraCaptura, fkDispositivo) value
+	            ('${dados.nomeCPU}', ${dados.porcentagemUsoCPU}, '${dados.dataHoraCaptura}', ${pc.idDispositivo});
         """)
     }
 

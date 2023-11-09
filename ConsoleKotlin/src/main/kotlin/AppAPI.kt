@@ -4,6 +4,7 @@ import java.util.*
 fun sistema(bd:Repositorio, looca: Looca, ip:String){
 
     val sistema = Sistema()
+    val captura = CPU()
     val sn = Scanner(System.`in`)
 
     val comp:List<Computador> = bd.computador(ip)
@@ -59,6 +60,8 @@ fun sistema(bd:Repositorio, looca: Looca, ip:String){
                     var fks: Int
                     var dados: Double
                     println("\n\rEstamos monitorando sua máquina.\n\r")
+
+                    capturarPorcentagemDeUsoDaCPU(bd, pc)
                     // val (arquivo1, arquivo2) = ScriptPython.criarPython(aMonitorar.python(), pc.idDispositivo,
                     //ScriptPython.executarScript(arquivo1,arquivo2)
                     Runtime.getRuntime().addShutdownHook(Thread {
@@ -67,10 +70,8 @@ fun sistema(bd:Repositorio, looca: Looca, ip:String){
                     })
 
                     capturarDadosDeCPU()
-
-
                         while (true) {
-                            capturarPorcentagemDeUsoDaCPU()
+                           capturarPorcentagemDeUsoDaCPU(bd, pc)
                             println("\n\r")
                             Thread.sleep(5000)
                         }
