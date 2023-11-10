@@ -36,8 +36,8 @@ class Repositorio {
     }
     fun insertDadosCPU(pc:Computador, dados:CPU){
         bd!!.execute("""
-            insert into dados_cpu(nomeCPU,porcentagemUsoCPU, dataHoraCaptura, fkDispositivo) value
-	            ('${dados.nomeCPU}', ${dados.porcentagemUsoCPU}, '${dados.dataHoraCaptura}', ${pc.idDispositivo});
+            insert into dados_cpu(nomeCPU, porcentagemUsoCPU, dataHoraCaptura, fkDispositivo) values
+	            ('${dados.nomeCPU}', ${dados.porcentagemUsoCPU}, '${dados.dataHoraCaptura}', ${pc.idDispositivo})
         """)
     }
 

@@ -6,18 +6,18 @@ import mysql.connector
 from datetime import date
 from datetime import datetime
 
-# Função para estabelecer uma conexão com o banco de dados MySQL
+# Função para estabelecer uma conexão com o BD
 def connect_to_mysql():
     try:
-        # Configurações de conexão com o banco de dados MySQL
+        # Configurações de conexão com o BD
         config = {
-            'host': 'localhost', # Host do banco de dados
-            'user': 'root',# Nome de usuário
-            'password': 'root', # Senha
-            'database': 'Geolocalizacao'# Nome do banco de dados
+            'host': 'localhost', 
+            'user': 'root',
+            'password': 'root', 
+            'database': 'trackware'
         }
 
-        # Conecta-se com o banco de dados MySQL
+        # Conecta-se com o BD
         conexao = mysql.connector.connect(**config)
         print("Conexão ao banco de dados MySQL estabelecida com sucesso!")
         return conexao
@@ -32,42 +32,42 @@ def get_location_by_ip(conexao):
         # Usando 'geocoder.ip('me') para obter a localização com base no IP da máquina atual
         g = geocoder.ip('me')
 
-        # Verifica se as coordenadas de latitude e longitude estão disponíveis
+        # Verificando se as coordenadas de latitude e longitude estão disponíveis
         if g.latlng:
             latitude, longitude = g.latlng
-            location = g.address
+            local = g.address
 
             print("Localização obtida com sucesso:")
-            print(f"Localização: {location}")
+            print(f"Localização: {local}")
             print(f"Latitude: {latitude}")
             print(f"Longitude: {longitude}")
-       # Captura as informações de data e hora do momento da captura
+       # Capturando as informações de data e hora do momento da captura
             data_atual = date.today()
             dataBR = '{}/{}/{}'.format(data_atual.day, data_atual.month, data_atual.year)
             hora_atual = datetime.now()
             horaBR = hora_atual.strftime("%H:%M:%S")
             print("Data da captura: ",dataBR, "Hora da captura: ", horaBR)
 
-            # Insere as informações de localização no banco de dados MySQL
-            insert_location_in_mysql(conexao, location, latitude, longitude, data_atual, hora_atual)
+            # Inserindo as informações de localização no BD
+            insert_location_in_mysql(conexao, local, latitude, longitude, data_atual, hora_atual)
         else:
             print("Não foi possível obter a localização com base no IP.")
     except Exception as e:
         print(f"Erro ao obter a localização: {str(e)}")
 
-# Função para inserir informações de localização no banco de dados MySQL
-def insert_location_in_mysql(conexao, location, latitude, longitude, data_atual, hora_atual):
+# Função para inserir informações de localização no BD
+def insert_location_in_mysql(conexao, local, latitude, longitude, data_atual, hora_atual):
     try:
         # Cria um cursor para executar comandos SQL
         cursor = conexao.cursor()
 
-        # Está definindo a consulta SQL para inserir dados na tabela do banco de dados
-        inserir_dados = "INSERT INTO local (localizacao, latitude, longitude, data_atual, hora_atual) VALUES (%s, %s, %s, %s, %s)"
+        # Está definindo a consulta SQL para inserir dados na tabela do BD
+        inserir_dados = "INSERT INTO geolocalizacao (endereco, latitude, longitude, data_atual, hora_atual) VALUES (%s, %s, %s, %s, %s)"
 
-        # Valores a serem inseridos
-        valores = (location, latitude, longitude, data_atual, hora_atual)
+        # Valores que serão inseridos
+        valores = (local, latitude, longitude, data_atual, hora_atual)
 
-        # Executa a consulta com os valores
+        # Executa a consulta com os valores passados
         cursor.execute(inserir_dados, valores)
 
         # Faz commit das alterações no banco de dados
@@ -81,7 +81,7 @@ def insert_location_in_mysql(conexao, location, latitude, longitude, data_atual,
         # Fecha o cursor
         cursor.close()
 
-# Chama a função para estabelecer a conexão com o banco de dados MySQL
+# Chama a função para estabelecer a conexão com o BD
 conexao_mysql = connect_to_mysql()
 
 if conexao_mysql:

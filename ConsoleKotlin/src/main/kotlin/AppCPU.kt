@@ -28,10 +28,6 @@ fun capturarDadosDeCPU() {
     // Adicione a porcentagem de uso ao objeto informacao
     //informacao.porcentagemUsoCPU = porcentagemArredondada
 
-    // inserir os dados no banco de dados
-    val bd = Repositorio()
-    bd.iniciar()
-
 }
 
 fun capturarPorcentagemDeUsoDaCPU(bd: Repositorio, pc: Computador) {
@@ -48,8 +44,7 @@ fun capturarPorcentagemDeUsoDaCPU(bd: Repositorio, pc: Computador) {
 
             informacao.nomeCPU = processador.nome
 
-            informacao.porcentagemUsoCPU = porcentagemArredondada
-
+            informacao.porcentagemUsoCPU = porcentagemUso
 
             val dataHoraCaptura = LocalDateTime.now()
             val dataFormatada = dataHoraCaptura.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"))
@@ -57,6 +52,9 @@ fun capturarPorcentagemDeUsoDaCPU(bd: Repositorio, pc: Computador) {
             informacao.dataHoraCaptura = dataFormatada
 
             // Imprima a porcentagem de uso da CPU e a data/hora da captura
+//            println("Informações da CPU:")
+//            println("Nome: ${processador.nome}")
+
             println("Uso da CPU: $porcentagemArredondada%")
             println("Data e Hora da Captura: $dataFormatada")
 
