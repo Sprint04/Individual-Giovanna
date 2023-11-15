@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Cadastro e Login | TrackWare</title>
+
+  <script src="./js/sessao.js"></script>
+  <link rel="icon" href="assets/icon/favicon.png">
+  <link rel="stylesheet" href="css/cadastro&Login.css">
+  <link rel="stylesheet" href="css/mobileCadLog.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="shortcut icon" href="assets/logo-icon.png" type="image/x-icon">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <script type="text/javascript" src="js/viaCep.js"></script>
+</head>
+
+<body>
+
+
+  <!-- Cadastro e Login -->
+
+  <div class="container" id="container">
+    <div class="form-container sign-up-container" id="texto">
+      <div class="formCadastroUsuario" id="formCadastroUsuario" display="block">
+        <h1>Cadastro Empresarial</h1>
+        <h3>Dados da Empresa</h3>
+
+        <!-- Dados da empresa -->
+        <div>
+
+          <div class="input-group">
+            <input type="text" id="nomeEmpresa_input" class="input-group__input" required />
+            <label for="empresa_input" class="input-group__label">Nome da empresa</label>
+          </div>
+
+          <div class="input-group">
+            <input type="text" id="cnpj_input" class="input-group__input" required />
+            <label for="cnpj_input" class="input-group__label">CNPJ</label>
+          </div>
+
+          <div class="input-group">
+            <input type="text" id="cep_input" class="input-group__input" oninput="buscarCep()" required />
+            <label for="cep_input" class="input-group__label">CEP</label>
+          </div>
+
+          <div class="input-group">
+            <input type="text" id="estado_input" class="input-group__input" required />
+            <label for="estado_input" class="input-group__label">Estado</label>
+          </div>
+
+          <div class="input-group">
+            <input type="text" id="cidade_input" class="input-group__input" required />
+            <label for="cidade_input" class="input-group__label">Cidade</label>
+          </div>
+
+          <div class="input-group">
+            <input type="text" id="bairro_input" class="input-group__input" required />
+            <label for="bairro_input" class="input-group__label">Bairro</label>
+          </div>
+
+          <div class="input-group">
+            <input type="text" id="rua_input" class="input-group__input" required />
+            <label for="rua_input" class="input-group__label">Rua</label>
+          </div>
+
+          <div class="input-group">
+            <input type="text" id="numero_input" class="input-group__input" required />
+            <label for="numero_input" class="input-group__label">Número</label>
+          </div>
+
+          <div class="input-group">
+            <input type="text" id="complemento_input" class="input-group__input" required />
+            <label for="complemento_input" class="input-group__label">Complemento</label>
+          </div>
+        </div>
+        <!-- Dados do representante da empresa -->
+        <div>
+          <h3>Dados do Representante Legal</h3>
+          <div class="input-group">
+            <input type="text" id="nome_input" class="input-group__input" required />
+            <label for="nome_input" class="input-group__label">Nome</label>
+          </div>
+
+          <div class="input-group">
+            <input type="text" id="sobrenome_input" class="input-group__input" required />
+            <label for="sobrenome_input" class="input-group__label">Sobrenome</label>
+          </div>
+
+          <div class="input-group">
+            <input type="text" id="cpf_input" class="input-group__input" required />
+            <label for="cpf_input" class="input-group__label">CPF</label>
+          </div>
+
+          <div class="input-group">
+            <input type="text" id="email_input" class="input-group__input" required />
+            <label for="email_input" class="input-group__label">Email Corporativo</label>
+          </div>
+
+          <div class="input-group">
+            <input type="text" id="telFixo_input" class="input-group__input" required />
+            <label for="telFixo_input" class="input-group__label">Telefone Fixo</label>
+          </div>
+
+          <div class="input-group">
+            <input type="text" id="telCel_input" class="input-group__input" required />
+            <label for="telCel_input" class="input-group__label">Telefone Celular</label>
+          </div>
+
+          <div class="input-group">
+            <input type="password" id="senha_input" class="input-group__input" required />
+            <label for="senha_input" class="input-group__label">Senha</label>
+          </div>
+        </div>
+        <br>
+
+        <button class="botao" onclick="cadastrar()">Cadastrar</button>
+
+        <div class="frase-cadastro-usuario">
+          <!--   <span>Precisa cadastrar uma conta empresarial? <button class="botao-cadastrar-usuario"
+              onclick="cadastroEmpresa()">Clique aqui</button></span>-->
+        </div>
+
+        <button class="botao-voltar-colaborativo"><a href="index.html">Voltar para Home »</a></button>
+      </div>
+
+    </div>
+    <div class="form-container sign-in-container" id="entraraq">
+      <div class="form">
+        <div class="inps">
+          <h1>Login</h1>
+        </div>
+        <div class="input-group">
+          <input type="text" id="email_input_login" class="input-group__input" required />
+          <label for="email_input_login" class="input-group__label">Email</label>
+        </div>
+        <div class="input-group">
+          <input type="password" id="senha_input_login" class="input-group__input" required />
+          <label for="senha_input_login" class="input-group__label">Senha</label>
+        </div>
+
+        <a href="#">Esqueceu sua senha?</a>
+        <div id="aguardar"></div>
+        <div id="cardErro">
+          <p id="mensagem_erro"></p>
+        </div>
+        <div id="div_aguardar"></div>
+        <button class="botao" onclick="login()" type="button">Entrar</button>
+        <button class="botao-voltar-login"><a href="index.html"> « Voltar para Home</a></button>
+
+      </div>
+    </div>
+
+    <!-- Animação rpo deslize e a aparacição da outra Div -->
+
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <img src="./assets/background1.gif" style="width: 80%; height:60%">
+          <h1>É novo por aqui?</h1>
+          <p>Boas-Vindas! Crie uma conta para obter uma ampla visão sobre os hardwares do seu negócio, ou, clique no
+            botão abaixo para a realização de login, caso já tenha um cadastro.</p>
+          <button class="botao ghost" id="signIn" onclick="signInLogin()">Login</button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <img src="./assets/background.gif" style="width: 80%; height:60%">
+          <h1>É um prazer vê-lo novamente!</h1>
+          <p>Faça o login para continuar navegando, ou, clique no botão abaixo para a realização de cadastro!</p>
+          <button class="botao ghost" id="signUp" onclick="signUpCadastrar()">Cadastrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+</html>
+
+<script>
+
+  function cadastroUsuario() {
+    formCadastroEmpresa.style.display = "none";
+    formCadastroUsuario.style.display = "block";
+  }
+  function cadastroEmpresa() {
+    formCadastroEmpresa.style.display = "block";
+    formCadastroUsuario.style.display = "none";
+  }
+
+  function signInLogin() {
+    container.classList.remove("right-panel-active");
+  }
+
+  // id container criado lá em cima 
+
+  function signUpCadastrar() {
+    container.classList.add("right-panel-active");
+  }
+
+
+  function login() {
+    var email = email_input_login.value
+    var senha = senha_input_login.value
+
+    if (email == "" && senha == "") {
+      alert("Os campos de email e senha precisam ser preenchidos")
+    } else {
+      console.log("Realizando login")
+      fetch("/usuarios/usuarioLogin", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          emailServer: email,
+          senhaServer: senha
+        })
+      }).then(function (resposta) {
+        console.log("Estou no then do Login()!")
+        if (resposta.ok) {
+          console.log(resposta);
+
+          resposta.json().then(json => {
+            console.log(json);
+            console.log(JSON.stringify(json));
+
+            sessionStorage.ID_USUARIO = json.idUsuario;
+            sessionStorage.NOME_USUARIO = json.nomeUsuario;
+            sessionStorage.EMAIL_USUARIO = json.email_Corporativo;
+            sessionStorage.ID_EMPRESA = json.idEmpresa;
+            sessionStorage.NOME_EMPRESA = json.nomeEmpresa
+            sessionStorage.ID_CARGO = json.idCargo;
+            sessionStorage.NOME_CARGO = json.nomeCargo
+
+            setTimeout(function () {
+              window.location = "./dashboard/dashboard.html";
+            }, 1000);
+          });
+        } else {
+          console.log("Houve ao efetuar o login!");
+
+          resposta.text().then(texto => {
+            console.error(texto);
+          })
+        }
+      }).catch(function (erro) {
+        console.log(erro);
+      })
+    }
+  }
+
+  // Area Cadastro -------------------------------------------------------------------------------------
+
+  function verificarEndereco(idRecuperado) {
+    if (idRecuperado == 0) {
+      setTimeout(cadastroEndereco, 250)
+    } else {
+      alert("Tudo Certo!")
+    }
+  }
+
+  function cadastrar() {
+    cadastrarComplemento();
+    criacaoToken()
+    setTimeout(cadastrarEmpresa, 1000)
+    setTimeout(cadastrarUsuario, 2000)
+    setTimeout(cadastrarTelefone, 2500)
+    setTimeout(alert('O cadastro foi realizado, faça seu login!!!'), 4000)
+  }
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
+
+  // Area Login ------------------------------------------------------------------------------------
+  async function buscarCep() {
+    var idRecuperado = 0
+    var cep = cep_input.value
+    var url = `https://viacep.com.br/ws/${cep}/json/`;
+
+    if (cep.length == 8) {
+      fetch(url)
+      console.log(
+        fetch(url)
+      )
+      try {
+        var resposta = await fetch(url)
+        resposta.json()
+        console.log(resposta)
+        if (resposta.ok) {
+          var respostaJson = await resposta.json()
+          console.log('DADOS RECEBIDOS', respostaJson)
+          estado_input.value = respostaJson.uf;
+          cidade_input.value = respostaJson.localidade;
+          bairro_input.value = respostaJson.bairro;
+          rua_input.value = respostaJson.logradouro;
+        }
+      } catch (erro) {
+        console.log("Erro", erro)
+      }
+
+      console.log(
+        fetch(url)
+      )
+      fetch(url).then(
+        function (resposta) {
+          // funcionamento em json
+          console.log('Deu certo', resposta)
+          resposta.json()
+            .then(
+              function (respostaJson) {
+                console.log('DADOS RECEBIDOS', respostaJson)
+                rua_input.value = respostaJson.logradouro;
+                bairro_input.value = respostaJson.bairro;
+                cidade_input.value = respostaJson.localidade;
+                estado_input.value = respostaJson.uf;
+              }
+            )
+        })
+        .catch(
+          function (erro) {
+            console.log(`Deu erro`)
+            console.log(erro)
+          }
+        )
+      setTimeout(recuperarEndereco(idRecuperado), 250)
+    }
+  }
+
+  function recuperarEndereco(idRecuperado) {
+    var cep = cep_input.value
+
+    console.log("FORM CEP: ", cep);
+
+    fetch("/endereco/recuperarEndereco", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        cepServer: cep
+      })
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN do verificar endereço!")
+
+      if (resposta.ok) {
+        console.log(resposta);
+
+        resposta.json().then(json => {
+          console.log(json);
+          console.log(JSON.stringify(json));
+          sessionStorage.setItem('idEndereco', JSON.stringify(json.idEndereco));
+          idRecuperado = Number(json.idEndereco);
+          console.log(idRecuperado);
+        });
+      } else {
+        console.log("Houve um erro ao tentar consultar o endereço!");
+
+        resposta.text().then(texto => {
+          console.error(texto);
+        })
+      }
+    }).catch(function (erro) {
+      console.log(erro);
+    })
+
+    setTimeout(verificarEndereco(idRecuperado), 250)
+    return false
+  }
+
+  function cadastroEndereco() {
+    var cep = cep_input.value
+    var estado = estado_input.value
+    var cidade = cidade_input.value
+    var bairro = bairro_input.value
+    var rua = rua_input.value
+
+    fetch("/endereco/cadastroEndereco", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        cepServer: cep,
+        estadoServer: estado,
+        cidadeServer: cidade,
+        bairroServer: bairro,
+        ruaServer: rua
+      })
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN do cadastro endereço!")
+
+      if (resposta.ok) {
+        console.log(resposta);
+
+        resposta.json().then(json => {
+          console.log(json);
+          console.log(JSON.stringify(json));
+
+        });
+      } else {
+        console.log("Houve um erro ao tentar cadastrar o endereço!")
+
+        resposta.text().then(texto => {
+          console.error(texto);
+        })
+      }
+    }).catch(function (erro) {
+      console.log(erro);
+    })
+    setTimeout(recuperarEndereco, 250)
+    return false;
+  }
+
+  function cadastrarComplemento() {
+    var Numero = Number(numero_input.value)
+    var Complemento = complemento_input.value
+    var valorArmazenadoFkEndereco = sessionStorage.getItem('idEndereco');
+    var fkEndereco = valorArmazenadoFkEndereco
+
+    fetch("endereco/cadastrarComplemento", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        numeroServer: Numero,
+        complementoServer: Complemento,
+        fkEnderecoServer: fkEndereco
+      })
+    }).then(function (resposta) {
+      console.log("Efetuando o cadastro do complemento")
+      if (resposta.ok) {
+        console.log(resposta);
+
+        resposta.json().then(json => {
+          console.log(json);
+          console.log(JSON.stringify(json));
+        });
+      } else {
+        console.log("Houve ao cadastrar o complemento!");
+
+        resposta.text().then(texto => {
+          console.error(texto);
+        })
+      }
+    }).catch(function (erro) {
+      console.log(erro);
+    })
+    setTimeout(recuperarComplemento, 250)
+    return false;
+  }
+
+  function recuperarComplemento() {
+    var numero = numero_input.value
+    var complemento = complemento_input.value
+
+    fetch("/endereco/recuperarComplemento", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        numeroServer: numero,
+        complementoServer: complemento
+      })
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN do Autenticar Endereco()!")
+
+      if (resposta.ok) {
+        console.log(resposta);
+
+        resposta.json().then(json => {
+          console.log(json);
+          console.log(JSON.stringify(json));
+
+          sessionStorage.setItem('idComplemento', JSON.stringify(json.idComplemento));
+          console.log(sessionStorage.getItem('idComplemento'));
+        });
+      } else {
+        console.log("Houve um erro ao tentar cadastrar a empresa!");
+
+        resposta.text().then(texto => {
+          console.error(texto);
+        })
+      }
+    }).catch(function (erro) {
+      console.log(erro);
+    })
+
+    return false;
+  }
+
+  function criacaoToken() {
+    var token = ""
+    var op = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "a", 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    for (i = 0; token.length < 15; i++) {
+      letra = Math.floor(Math.random() * 34)
+      token += op[letra]
+    }
+
+    fetch("/empresas/criarToken",{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        tokenServer: token
+      })
+    }).then(function (resposta) {
+      console.log("Estou no then da criação de token!")
+
+      if(resposta.ok){
+        console.log(resposta);
+
+        resposta.json().then(json => {
+          console.log(json);
+          console.log(JSON.stringify(json));
+
+        });
+      } else {
+        console.log("Houve um erro ao tentar criar o token!");
+
+        resposta.text().then(texto => {
+          console.error(texto);
+        })
+      }
+    }).catch(function (erro) {
+      console.log(erro);
+    })
+    setTimeout(recuperarToken(token), 250)
+    return false;
+  }
+
+  function cadastrarEmpresa() {
+    var nome = nomeEmpresa_input.value;
+    var cnpj = cnpj_input.value;
+    var fkEnderecoComplemento = sessionStorage.getItem('idComplemento')
+    var fkToken = sessionStorage.getItem('idToken')
+    console.log(fkToken)
+
+    fetch("/empresas/cadastrarEmpresa", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        nomeServer: nome,
+        cnpjServer: cnpj,
+        fkEnderecoComplementoServer: fkEnderecoComplemento,
+        fkTokenServer: fkToken
+      })
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN do Cadastrar Empresa!")
+
+      if (resposta.ok) {
+        console.log(resposta);
+
+        resposta.json().then(json => {
+          console.log(json);
+          console.log(JSON.stringify(json));
+
+        });
+      } else {
+        console.log("Houve um erro ao tentar cadastrar a empresa!");
+
+        resposta.text().then(texto => {
+          console.error(texto);
+        })
+      }
+    }).catch(function (erro) {
+      console.log(erro);
+    })
+    setTimeout(recuperarEmpresa, 250)
+    return false;
+  }
+
+  // function recuperarToken(token){
+  
+  //   fetch("/empresas/recuperarToken/", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify({
+  //       tokenServer: token
+  //     })
+  //   }).then(function (resposta) {
+  //     console.log("ESTOU NO THEN do Recuperar Token!")
+
+  //     if (resposta.ok) {
+  //       console.log(resposta);
+
+  //       resposta.json().then(json => {
+  //         console.log(json);
+  //         console.log(JSON.stringify(json));
+
+  //         var idToken = JSON.stringify(json[0].idToken);
+  //         sessionStorage.setItem('idToken', JSON.stringify(json[0].idToken));
+  //         console.log(sessionStorage.getItem('idToken'));
+  //         console.log(idToken)
+  //       });
+  //     } else {
+  //       console.log("Houve um erro ao tentar recuperar o id token!");
+
+  //       resposta.text().then(texto => {
+  //         console.error(texto);
+  //       })
+  //     }
+  //   }).catch(function (erro) {
+  //     console.log(erro);
+  //   })
+
+  //   return false;
+  // }
+  function recuperarToken(token) {
+        fetch(`/empresas/recuperarToken/${token}`
+        ).then(function (resposta) {
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    sessionStorage.setItem('idToken', JSON.stringify(resposta[0].idToken));
+                    console.log(sessionStorage.getItem('idToken'));
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o listar!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+  function recuperarEmpresa() {
+    var cnpj = cnpj_input.value;
+
+    fetch("/empresas/recuperarEmpresa", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        cnpjServer: cnpj
+      })
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN do Recuperar Empresa!")
+
+      if (resposta.ok) {
+        console.log(resposta);
+
+        resposta.json().then(json => {
+          console.log(json);
+          console.log(JSON.stringify(json));
+
+          sessionStorage.setItem('idEmpresa', JSON.stringify(json.idEmpresa));
+          console.log(sessionStorage.getItem('idEmpresa'));
+        });
+      } else {
+        console.log("Houve um erro ao tentar recuperar os dados da empresa!");
+
+        resposta.text().then(texto => {
+          console.error(texto);
+        })
+      }
+    }).catch(function (erro) {
+      console.log(erro);
+    })
+
+    return false;
+  }
+
+  function cadastrarUsuario() {
+    var nome = nome_input.value
+    var sobrenome = sobrenome_input.value
+    var cpf = cpf_input.value
+    var email = email_input.value
+    var senha = senha_input.value
+    var fkEmpresa = sessionStorage.getItem('idEmpresa')
+
+    fetch("/usuarios/cadastrarUsuario", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        nomeServer: nome,
+        sobrenomeServer: sobrenome,
+        cpfServer: cpf,
+        emailServer: email,
+        senhaServer: senha,
+        fkEmpresaServer: fkEmpresa
+      })
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN do Cadastrar Usuario!")
+
+      if (resposta.ok) {
+        console.log(resposta);
+
+        resposta.json().then(json => {
+          console.log(json);
+          console.log(JSON.stringify(json));
+        });
+      } else {
+        console.log("Houve um erro ao tentar cadastrar o usuario!");
+
+        resposta.text().then(texto => {
+          console.error(texto);
+        })
+      }
+    }).catch(function (erro) {
+      console.log(erro);
+    })
+    setTimeout(recuperarUsuario, 250)
+    return false;
+  }
+
+  function recuperarUsuario() {
+
+    var cpf = cpf_input.value;
+
+    fetch("/usuarios/recuperarUsuario", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        cpfServer: cpf
+      })
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN do Recuperar Usuario!")
+
+      if (resposta.ok) {
+        console.log(resposta);
+
+        resposta.json().then(json => {
+          console.log(json);
+          console.log(JSON.stringify(json));
+
+          sessionStorage.setItem('idUsuario', JSON.stringify(json.idUsuario));
+          console.log(sessionStorage.getItem('idUsuario'));
+        });
+      } else {
+        console.log("Houve um erro ao tentar recuperar os dados do usuario!");
+
+        resposta.text().then(texto => {
+          console.error(texto);
+        })
+      }
+    }).catch(function (erro) {
+      console.log(erro);
+    })
+
+    return false;
+  }
+
+  function cadastrarTelefone() {
+    var telefoneFixo = telFixo_input.value;
+    var telefoneCelular = telCel_input.value;
+    var fkUsuario = sessionStorage.getItem('idUsuario');
+
+    fetch("/usuarios/cadastrarTelefone", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        telFixoServer: telefoneFixo,
+        telCelServer: telefoneCelular,
+        fkUsuarioServer: fkUsuario
+      })
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN do Cadastrar Telefone!")
+
+      if (resposta.ok) {
+        console.log(resposta);
+
+        resposta.json().then(json => {
+          console.log(json);
+          console.log(JSON.stringify(json));
+        });
+      } else {
+        console.log("Houve um erro ao tentar cadastrar o telefone!");
+
+        resposta.text().then(texto => {
+          console.error(texto);
+        })
+      }
+    }).catch(function (erro) {
+      console.log(erro);
+    })
+    return false;
+  }
+</script>

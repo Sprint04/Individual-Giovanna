@@ -1,0 +1,626 @@
+/* CSS Do SAIBA MAIS RESPONSIVO */
+
+@media screen and (max-width: 768px) {
+
+    body {
+        overflow-x: hidden;
+        width: 52vh;
+    }
+
+    .principal {
+        overflow-x: hidden;
+    }
+
+    /* NAV BAR */
+    .navbar {
+        width: 100vw;
+        height: 12vh;
+    }
+
+    /* área da lista da navbar */
+    .navbar-items ul {
+        font-size: .3rem;
+        list-style: none;
+        margin-left: -3vw;
+        margin-top: 6vh;
+    }
+
+
+    /* INICIO HOME (SAIBA MAIS) */
+    #homeMain {
+        height: 110vh;
+        width: 100vw;
+    }
+
+    /* área onde fica todos os textos da home (saiba mais) */
+    .main-texto {
+        top: 7vh;
+    }
+
+    /* título: saiba mais */
+    #TrackWare-titulo {
+        font-size: 6vh;
+        width: 50vh;
+    }
+
+    /* texto: bem-vindo */
+    #part1 {
+        font-size: 3vh;
+        width: 80%;
+    }
+
+    /* texto: sobre a área de saiba mais*/
+    #part2 {
+        font-size: 3vh;
+        width: 70%;
+        text-align: start;
+    }
+
+
+    /* sublinhado */
+    .line-saiba-mais {
+        width: 36vh;
+    }
+
+    /* imagem home (saiba mais): gráficos e métricas*/
+    .ilustracao-home {
+        width: 50vh;
+        height: 50vh;
+        position: relative;
+        top: 13vh;
+        right: 8vh;
+        display: none;
+    }
+
+    #imagemHome {
+        width: 60vh;
+        height: 60vh;
+        position: relative;
+        top: 0vh;
+        right: 4vh;
+    }
+
+
+
+    /* SECTION: O QUE MONITORAMOS? */
+    .back-sobre-nos {
+        width: 100vw;
+    }
+
+    .section-sobre {
+        margin-top: 10vh;
+        width: 100vw;
+        height: 80vh;
+    }
+
+    /* titulo */
+    .texto-sobre-nos h1 {
+        left: 11vh;
+    }
+
+    /* sublinhado */
+    .section-sobre .texto-sobre-nos .line {
+        left: 5vh;
+    }
+
+    /* texto 1 */
+    .p1 {
+        width: 65%;
+        margin: 0;
+        left: 10vh;
+        text-align: justify;
+        font-size: 1.6vh;
+    }
+
+
+    /* SECTION: PORQUE A ÁNALISE DE DADOS É IMPORTANTE?  */
+
+    .section-analise {
+        margin-top: 20vh;
+        width: 100vw;
+        height: 120vh;
+    }
+
+    /* área que engloba todo o texto de análise */
+    .texto-analise {
+        height: 80vh;
+        margin-top: -10vh;
+    }
+
+    /* titulo */
+    .analise-dados .texto-analise h1 {
+        width: 75%;
+        left: 5vh;
+        line-height: 8vh;
+    }
+
+    /* sublinhado */
+    .analise-dados .texto-analise .line {
+        height: 5px;
+        width: 93vh;
+        background-color: #8800ff;
+        position: relative;
+        bottom: 10vh;
+        left: -1vh;
+    }
+
+    /* texto */
+    .analise-dados .texto-analise .p1 {
+        width: 75%;
+        left: 5vh;
+        text-align: justify;
+        font-size: 1.9vh;
+        line-height: 25px;
+    }
+
+    /* o retângulo interio ocupando toda a largura da página */
+    .cards {
+        margin-top: 10vh;
+        margin-left: -3vw;
+    }
+
+    /* cada retângulo dentro do retângulo maior */
+.card1-analise{
+    background-color: #4f0081;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 25%;
+    height: 20vh;
+    font-size: 1.5vh;
+    color: #ffffff;
+}
+
+.card2-analise{
+    background-color: #6700a6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 25%;
+    height: 20vh;
+    font-size: 1.5vh;
+    color: #ffffff;
+}
+
+.card3-analise{
+    background-color: #7c00c9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 25%;
+    height: 20vh;
+    font-size: 1.5vh;
+    color: #ffffff;
+}
+
+.card4-analise{
+    background-color: #9d00ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 25%;
+    height: 20vh;
+    font-size: 1.4vh;
+    color: #ffffff;
+}
+
+
+    /* SECTION: PORQUE EMPRESAS DE LOGÍSTICA?*/
+    .back-logistica .porque-logistica {
+        width: 100vw;
+    }
+
+    .section-logistica {
+        margin-top: 20vh;
+        width: 100vw;
+        height: 120vh;
+    }
+
+    /* área que engloba a section */
+    .porque-logistica {
+        margin-top: 10vh;
+        width: 100vw;
+        height: 120vh;
+    }
+
+    /* título */
+    .h1 {
+        left: 6vh;
+        line-height: 8vh;
+        font-size: 4vh;
+    }
+
+    /* sublinhado */
+    .section-logistica .texto-porque-logistica .line {
+        width: 65vh;
+        left: -2vh;
+    }
+
+    /* área do texto */
+    .texto-porque-logistica {
+        height: 80vh;
+    }
+
+    /* texto */
+    .texto-porque-logistica .p1 {
+        width: 70%;
+        left: 6vh;
+        margin-top: 10vh;
+        font-size: 1.7vh;
+    }
+
+    /* imagem: homem levando caixas */
+    #imagemlogi {
+        display: none;
+    }
+
+    /* SECTION: FRASE DO QUE A TRACKWARE DESEJA OFERECER */
+    .frase .frase-trackware {
+        width: 100vw;
+    }
+
+    .section-frase {
+        margin-top: 5vh;
+        width: 100vw;
+        height: 120vh;
+    }
+
+    .texto-analise {
+        width: 100vw;
+        font-size: 1vw;
+    }
+
+    /* área que engloba a section */
+    .frase-trackware {
+        margin-top: 5vh;
+        background-color: #000000;
+        width: 100vw;
+        height: 70vh;
+    }
+
+    /* frase */
+    .frase-trackware .texto-frase .h1 {
+        width: 95%;
+        left: 0;
+        margin-top: 10vh;
+        font-size: 5vw;
+        text-align: center;
+    }
+
+
+
+    /* SECTION: INFORMAÇÕES RELEVANTES SOBRE NOSSOS SERVIÇOS */
+    .servicos {
+        width: 100vw;
+    }
+
+    /* titulo */
+    .servicos .texto-infos .h1 {
+        line-height: 8vh;
+        left: 22vh;
+        font-size: 10vw;
+    }
+
+    /* sublinhado */
+    .servicos .texto-infos .line {
+        height: 5px;
+        width: 49vh;
+        left: 23vh;
+        line-height: 20vh;
+        margin-bottom: 10vh;
+        color: white;
+    }
+
+    /* área que engloba todas as caixas */
+    .servicosDesc {
+        height: 40vh;
+        width: 100vw;
+        margin-top: -180vh;
+        margin-bottom: -100vh;
+    }
+
+    /* área das caixas */
+    .servicoBox {
+        height: 76vh;
+        width: 77vh;
+    }
+
+
+    /* subtitulos em cada uma das caixas */
+    .servicos .servicosDesc h2 {
+        text-align: center;
+        top: 4vh;
+        left: 16vh;
+        margin-bottom: 7vh;
+        font-size: 2.8vh;
+    }
+
+    /* texto dentro das caixas */
+    .servicos .servicosDesc .texto {
+        width: 70%;
+        left: 18vh;
+        text-align: justify;
+        font-size: 2.3vh;
+    }
+
+    .servicos label {
+        width: 100vw;
+    }
+
+
+
+
+    /* RODAPÉ */
+
+
+    .back-footer {
+        margin-top: 500vw;
+        width: 100vw;
+        height: 50vw;
+    }
+
+    :root {
+        --color-neutral-0: #0e0c0c;
+        --color-neutral-10: #171717;
+        --color-neutral-30: #a8a29e;
+        --color-neutral-40: #f5f5f5;
+
+    }
+
+    main {
+        height: 80vh;
+    }
+
+    footer {
+        width: 100%;
+        color: var(--color-neutral-40);
+    }
+
+    .link {
+        text-decoration: none;
+    }
+
+    #rodape {
+        background-color: var(--color-neutral-10);
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        padding: 8rem 5rem;
+        justify-content: space-around;
+        position: relative;
+
+
+    }
+
+    #footer_contacts h3 {
+        margin-bottom: 0.75rem;
+        font-size: xx-large;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 300;
+
+    }
+
+
+    #footer_contacts h3 span {
+        font-weight: 750;
+    }
+
+
+    /*
+LINK CODIGO REDES
+https://github.com/bytesoftheweb/Reels/tree/main/Icons/02z
+*/
+
+    #footer_social_media {
+        display: flex;
+        gap: 2rem;
+        margin-top: 1.5rem;
+    }
+
+    #footer_social_media .link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 2.5rem;
+        width: 2.5rem;
+        color: #fff;
+        border-radius: 50%;
+        outline: 2px solid #fff;
+        transition-property: outline-offset, outline-color, background-color;
+        transition-duration: 0.25s;
+    }
+
+    #footer_social_media .link i {
+        font-size: 1.25rem;
+        margin: auto;
+    }
+
+    #footer_social_media .link i:hover {
+        animation: shake 0.25s;
+    }
+
+    #footer_social_media .link:hover {
+        opacity: 0.8;
+        outline-offset: 4px;
+    }
+
+    .icons {
+	
+        display: flex;
+        width: 16vw;
+        justify-content: space-evenly;
+        position: relative;
+        top: 1rem;
+        
+    
+}
+
+    #email {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    #email p {
+        color: var(--color-neutral-30);
+    }
+
+    #input_group {
+        display: flex;
+        align-items: center;
+        background-color: var(--color-neutral-0);
+        border-radius: 4px;
+    }
+
+    #input_group input {
+        all: unset;
+        padding: 0.75rem;
+        width: 100%;
+    }
+
+    #input_group button {
+        background-color: #6E43B9;
+        border: none;
+        color: var(--color-neutral-40);
+        padding: 0px 1.25rem;
+        font-size: 1.125rem;
+        height: 100%;
+        border-radius: 0px 4px 4px 0px;
+        cursor: pointer;
+        transition: all 0.4s;
+    }
+
+    #input_group button:hover {
+        opacity: 0.8;
+    }
+
+    #copyright {
+        display: flex;
+        justify-content: center;
+        background-color: var(--color-neutral-0);
+        font-size: 0.9rem;
+        padding: 1.5rem;
+        font-weight: 100;
+        width: 112vh;
+    }
+
+    .footer-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        list-style: none;
+        text-decoration: none;
+        color: white;
+
+    }
+
+    .footer-list-contato {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        list-style: none;
+        margin-left: -6%;
+        text-decoration: none;
+        color: white;
+    }
+
+
+    .footer-list .footer-link {
+        color: white;
+        transition: all 0.4s;
+        text-decoration: none;
+        list-style: none;
+    }
+
+    .footer-list .footer-link:hover {
+        color: #7f37c9;
+
+    }
+
+    .notes {
+
+        position: relative;
+        width: auto;
+        max-width: 500px;
+        min-height: 150px;
+        background: #0e0c0c;
+        color: #333;
+        padding: 20px;
+        margin: 20px 0;
+        outline: none;
+        border-radius: 5px;
+
+    }
+
+
+    /* DIVISOR DA HOME */
+    .custom-shape-divider-bottom-1692911528 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        transform: rotate(180deg);
+    }
+
+    .custom-shape-divider-bottom-1692911528 svg {
+        position: relative;
+        display: block;
+        width: calc(108% + 1.3px);
+        height: 158px;
+    }
+
+    .custom-shape-divider-bottom-1692911528 .shape-fill {
+        fill: #FAFAFA;
+    }
+
+    /* DIVISOR DA HOME */
+    .custom-shape-divider-top-1694045992 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+    }
+
+    .custom-shape-divider-top-1694045992 svg {
+        position: relative;
+        display: block;
+        width: calc(100% + 1.3px);
+        height: 131px;
+    }
+
+    .custom-shape-divider-top-1694045992 .shape-fill {
+        fill: #FFFFFF;
+    }
+
+    /* BOTÃO PARA VOLTAR PARA CIMA */
+
+    .back-to-top {
+        position: fixed;
+        right: 1vh;
+        bottom: 1vh;
+        z-index: 999;
+        background: #6E43B9;
+        width: 11vw;
+        height: 7vh;
+        border-radius: 4px;
+        transition: all 0.4s;
+    }
+
+    .back-to-top:hover {
+        background: #550e63;
+        color: #fff;
+    }
+
+    .back-to-top i {
+        font-size: 28px;
+        color: #fff;
+        line-height: 0;
+    }
+}

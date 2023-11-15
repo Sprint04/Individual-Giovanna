@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="imagex/png" href="../assets/logo-icon.png">
+    <link rel="stylesheet" href="../css/dashboards.css">
+    <title>Trackware - Dashboards</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container_pagina">
+        <div class="menu_dashboard">
+            <div class="container_logo_menu_dashboard">
+                <div class="logo_menu_dashboard">
+                    <img src="../assets/logo-icon.png" alt="logo_menu">
+                </div>
+            </div>
+            <div class="opcoes_menu_dashboard">
+                <button onclick="btnDashboard()" class="button_selecionado">Dashboards</button>
+                <button>Usuário</button>
+                <button onclick="btnFuncionarios()">Funcionários</button>
+                <button onclick="btnPlanos()">Planos</button>
+                <button onclick="btnGeo()">Geolocalização</button>
+                <button>Alertas</button>
+                <button onclick="btnChamado()">Chamados</button>
+                <button onclick="btnHistorico()">Históricos</button>
+            </div>
+        </div>
+        <div class="tela_dashboard">
+            <div class="container_mensagem_botao">
+                <div class="container_mensagem_usuario">
+                    <div class="img_usuario">
+                        <img src="../assets/perfil.png" alt="">
+                    </div>
+                    <div class="mensagem_usuario">
+                        Bem-vindo(a) <span id="usuarioNome"></span>!
+                        <br>
+                        Empresa: <span id="empresaNome"></span>
+                    </div>
+                </div>
+
+                <div class="container_botao_maquinas">
+                    <div class="botao_maquina">
+                        <select name="" id="">
+                            <option value="">Máquina 1</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container_cards_monitoramento">
+                <button class="card" onclick="chamar_grafico_cpu()">
+                    <div class="container_dados_botao">
+                        <span class="tipo_componente">CPU</span>
+                        <div class="dado_monitoramento">
+                            <span id="dado_CPU">0%</span>
+                            <span class="tipo_utilizacao">Utilizado</span>
+                        </div>
+                    </div>
+                </button>
+                <button class="card" onclick="chamar_grafico_ram()">
+                    <div class="container_dados_botao">
+                        <span class="tipo_componente">RAM</span>
+                        <div class="dado_monitoramento">
+                            <span id="dado_RAM">0%</span>
+                            <span class="tipo_utilizacao">Utilizada</span>
+                        </div>
+                    </div>
+                </button>
+                <button class="card" onclick="chamar_grafico_disco()">
+                    <div class="container_dados_botao">
+                        <span class="tipo_componente">DISCO</span>
+                        <div class="dado_monitoramento">
+                            <span id="dado_DISCO">0%</span>
+                            <span class="tipo_utilizacao">Utilizado</span>
+                        </div>
+                    </div>
+                </button>
+                <!-- <button class="card">
+                    <div class="container_dados_botao">
+                        <span class="tipo_componente">REDE</span>
+                        <div class="dado_monitoramento">
+                            <span class="dado">0</span>
+                            <span class="tipo_utilizacao">Bytes</span>
+                        </div>
+                    </div>
+                </button> -->
+            </div>
+            <!-- gráfico abaixo !!! -->
+            <div class="container_grafico">
+                <div class="grafico">
+                    <div id="Grafico_Principal">
+                        <div class="img_informacao">
+                            <img src="../assets/ponto-de-informacao.png">
+                        </div>
+                        <div class="informacao">
+                            <h1><span>INFORMAÇÕES</span></h1>
+                            <div class="texto_informacao">
+                                <p>CPU: ao clicar no botão irá aparecer um gráfico
+                                    representando últimos dados capturados referente a CPU da máquina selecionada.</p>
+                            </div>
+                            <div class="texto_informacao">
+                                <p>RAM: ao clicar no botão irá aparecer um gráfico
+                                    representando últimos dados capturados referente a RAM da máquina selecionada.</p>
+                            </div>
+                            <div class="texto_informacao">
+                                <p>DISCO: ao clicar no botão irá aparecer um gráfico
+                                    representando últimos dados capturados referente ao DISCO da máquina selecionada.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <canvas id="Grafico_Cpu" style="display: none;">
+                    </canvas>
+                    <canvas id="Grafico_Ram" style="display: none;">
+                    </canvas>
+                    <canvas id="Grafico_Disco" style="display: none;">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<!-- parte do GU -->
+<script>
+
+    function btnPlanos() {
+        window.location.href = "../planos.html"
+    }
+
+    function btnChamado() {
+        window.location.href = "https://track-ware-help.atlassian.net/servicedesk/customer/portals"
+    }
+    function btnHistorico() {
+        window.location.href = "historico.html"
+    }
+
+    function btnGeo() {
+        window.location.href = "geolocalizacao.html"
+    }
+    
+    function btnFuncionarios() {
+        window.location.href = "funcionario.html"
+    }
+
+    function btnDashboard() {
+        window.location.href = "dashboard.html"
+    }
+</script>
+
+<!-- script config do Grafico, fetch & plot -->
+<script>
+
+   sessionStorage.NOME_EMPRESA = "Trackware"
+   sessionStorage.NOME_USUARIO = "Cesar"
+    var dadoCPU = 0;
+    var dadoRAM = 0;
+    var dadoDISCO = 0;
+
+    usuarioNome.innerHTML += sessionStorage.NOME_USUARIO
+    empresaNome.innerHTML += sessionStorage.NOME_EMPRESA
+
+    plotar_grafico_cpu()
+    plotar_grafico_ram()
+    plotar_grafico_disco()
+
+    var grafico_principal_ativado = 1;
+    var grafico_cpu_ativado = 0;
+    var grafico_ram_ativado = 0;
+    var grafico_disco_ativado = 0;
+
+    function chamar_grafico_cpu() {
+        if (grafico_cpu_ativado == 0) {
+            grafico_cpu_ativado = 1;
+            Grafico_Cpu.style.display = "block"
+
+            grafico_principal_ativado = 0;
+            Grafico_Principal.style.display = "none"
+
+            grafico_ram_ativado = 0;
+            Grafico_Ram.style.display = "none"
+
+            grafico_disco_ativado = 0;
+            Grafico_Disco.style.display = "none"
+
+        } else {
+            grafico_principal_ativado = 1;
+            Grafico_Principal.style.display = "block flex"
+
+            grafico_cpu_ativado = 0;
+            Grafico_Cpu.style.display = "none"
+
+            grafico_ram_ativado = 0;
+            Grafico_Ram.style.display = "none"
+
+            grafico_disco_ativado = 0;
+            Grafico_Disco.style.display = "none"
+        }
+    }
+
+    function chamar_grafico_ram() {
+        if (grafico_ram_ativado == 0) {
+            grafico_cpu_ativado = 0;
+            Grafico_Cpu.style.display = "none"
+
+            grafico_principal_ativado = 0;
+            Grafico_Principal.style.display = "none"
+
+            grafico_ram_ativado = 1;
+            Grafico_Ram.style.display = "block"
+
+            grafico_disco_ativado = 0;
+            Grafico_Disco.style.display = "none"
+        } else {
+            grafico_principal_ativado = 1;
+            Grafico_Principal.style.display = "block flex"
+
+            grafico_cpu_ativado = 0;
+            Grafico_Cpu.style.display = "none"
+
+            grafico_ram_ativado = 0;
+            Grafico_Ram.style.display = "none"
+
+            grafico_disco_ativado = 0;
+            Grafico_Disco.style.display = "none"
+        }
+    }
+
+    function chamar_grafico_disco() {
+        if (grafico_disco_ativado == 0) {
+            grafico_cpu_ativado = 0;
+            Grafico_Cpu.style.display = "none"
+
+            grafico_principal_ativado = 0;
+            Grafico_Principal.style.display = "none"
+
+            grafico_ram_ativado = 0;
+            Grafico_Ram.style.display = "none"
+
+            grafico_disco_ativado = 1;
+            Grafico_Disco.style.display = "block"
+        } else {
+            grafico_principal_ativado = 1;
+            Grafico_Principal.style.display = "block flex"
+
+            grafico_cpu_ativado = 0;
+            Grafico_Cpu.style.display = "none"
+
+            grafico_ram_ativado = 0;
+            Grafico_Ram.style.display = "none"
+
+            grafico_disco_ativado = 0;
+            Grafico_Disco.style.display = "none"
+        }
+    }
+
+    function plotar_grafico_cpu() {
+        console.log("oi césar")
+        obterDadosGraficoCPU()
+
+        function obterDadosGraficoCPU() {
+            fetch(`/dashboard/obterDadosGraficoCPU`, { cache: 'no-store' }).then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        resposta.reverse();
+                        // sessionStorage.DADO_CPU = json.dadoCapturado;
+                        // console.log(sessionStorage.DADO_CPU)
+                        plotarGrafico_CPU(resposta);
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+                .catch(function (error) {
+                    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+                });
+        }
+
+        function plotarGrafico_CPU(resposta) {
+            // Criando estrutura para plotar gráfico - labels
+            let labels = [];
+            // 
+            // Criando estrutura para plotar gráfico - dados
+            let data = {
+                labels: labels,
+                datasets: [{
+                    label: 'CPU usage',
+                    data: [],
+                    backgroundColor: ['rgb(0, 99, 140)', 'rgb(0, 99, 90)'],
+                    borderColor: 'blue',
+                    borderwidth: 1
+                }]
+            };
+
+            const config = {
+                type: 'line',
+                data: data,
+            };
+
+            console.log('iniciando plotagem do gráfico...');
+            const Grafico_Cpu = new Chart(
+                document.getElementById('Grafico_Cpu'),
+                config
+            );
+
+            // Inserindo valores recebidos em estrutura para plotar o gráfico
+            for (i = 0; i < resposta.length; i++) {
+                var registro = resposta[i];
+                // labels.push(registro.Novo_Testamento);
+                labels.push(registro.dtHora);
+                data.datasets[0].data.push(registro.dadoCapturado); // dadoCapturado é o nome da coluna do mySQL
+                // dados.datasets[0].data.push(registro.Novo_Testamento);
+                // dados.datasets[1].data.push(registro.temperatura);
+            }
+
+            var dadoCapturadoCPU = resposta[resposta.length - 1];
+            dadoCPU = dadoCapturadoCPU.dadoCapturado;
+            dado_CPU.innerHTML = `${dadoCPU}%`
+            
+
+            console.log('----------------------------------------------')
+            console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+            console.log(resposta)
+        }
+
+        // setInterval(plotarGrafico, 3000);
+    }
+
+    function plotar_grafico_ram() {
+        console.log("oi césar")
+        obterDadosGraficoRAM()
+
+        function obterDadosGraficoRAM() {
+            fetch(`/dashboard/obterDadosGraficoRAM`, { cache: 'no-store' }).then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        resposta.reverse();
+
+                        plotarGrafico_RAM(resposta);
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+                .catch(function (error) {
+                    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+                });
+        }
+
+        function plotarGrafico_RAM(resposta) {
+            // Criando estrutura para plotar gráfico - labels
+            let labels = [];
+            // 
+            // Criando estrutura para plotar gráfico - dados
+            let data = {
+                labels: labels,
+                datasets: [{
+                    label: 'RAM usage',
+                    data: [],
+                    backgroundColor: ['rgb(120, 20, 20)', 'rgb(150, 20, 10)'],
+                    borderColor: 'red',
+                    borderwidth: 1
+                }]
+            };
+
+            const config = {
+                type: 'line',
+                data: data,
+            };
+
+            console.log('iniciando plotagem do gráfico...');
+            const Grafico_Ram = new Chart(
+                document.getElementById('Grafico_Ram'),
+                config
+            );
+
+            // Inserindo valores recebidos em estrutura para plotar o gráfico
+            for (i = 0; i < resposta.length; i++) {
+                var registro = resposta[i];
+                // labels.push(registro.Novo_Testamento);
+                labels.push(registro.dtHora);
+                data.datasets[0].data.push(registro.dadoCapturado); // dadoCapturado é o nome da coluna do mySQL
+                // dados.datasets[0].data.push(registro.Novo_Testamento);
+                // dados.datasets[1].data.push(registro.temperatura);
+            }
+
+            var dadoCapturadoRAM = resposta[resposta.length - 1];
+            dadoRAM = dadoCapturadoRAM.dadoCapturado;
+            dado_RAM.innerHTML = `${dadoRAM}%`
+
+            console.log('----------------------------------------------')
+            console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+            console.log(resposta)
+        }
+
+        // setInterval(plotarGrafico, 3000);
+    }
+
+    function plotar_grafico_disco() {
+        console.log("oi césar")
+        obterDadosGraficoDISCO()
+
+        function obterDadosGraficoDISCO() {
+            fetch(`/dashboard/obterDadosGraficoDISCO`, { cache: 'no-store' }).then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        resposta.reverse();
+
+                        plotarGrafico_DISCO(resposta);
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+                .catch(function (error) {
+                    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+                });
+        }
+
+        function plotarGrafico_DISCO(resposta) {
+            // Criando estrutura para plotar gráfico - labels
+            let labels = [];
+            // 
+            // Criando estrutura para plotar gráfico - dados
+            let data = {
+                labels: labels,
+                datasets: [{
+                    label: 'DISCO usage',
+                    data: [],
+                    backgroundColor: ['rgb(0, 90, 40)', 'rgb(0, 99, 90)'],
+                    borderColor: 'green',
+                    borderwidth: 1
+                }]
+            };
+
+            const config = {
+                type: 'line',
+                data: data,
+            };
+
+            console.log('iniciando plotagem do gráfico...');
+            const Grafico_Disco = new Chart(
+                document.getElementById('Grafico_Disco'),
+                config
+            );
+
+            // Inserindo valores recebidos em estrutura para plotar o gráfico
+            for (i = 0; i < resposta.length; i++) {
+                var registro = resposta[i];
+                // labels.push(registro.Novo_Testamento);
+                labels.push(registro.dtHora);
+                data.datasets[0].data.push(registro.dadoCapturado); // dadoCapturado é o nome da coluna do mySQL
+                // dados.datasets[0].data.push(registro.Novo_Testamento);
+                // dados.datasets[1].data.push(registro.temperatura);
+            }
+
+            var dadoCapturadoDISCO = resposta[resposta.length - 1];
+            dadoDISCO = dadoCapturadoDISCO.dadoCapturado;
+            dado_DISCO.innerHTML = `${dadoDISCO}%`
+
+            console.log('----------------------------------------------')
+            console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+            console.log(resposta)
+        }
+
+        // setInterval(plotarGrafico, 3000);
+    }
+
+    // function plotar_grafico_principal() {
+    //     var ctx = document.getElementById('Grafico_Principal').getContext('2d');
+
+    //     let label_teste = [];
+
+    //     var data = {
+    //         labels: ['Atualização a cada 5 minutos'],
+    //         datasets: [{
+    //             label: 'CPU',
+    //             backgroundColor: 'green',
+    //             borderColor: 'black',
+    //             fill: false,
+    //             data: [10],
+    //             tension: 0.1
+    //         },
+
+    //         {
+    //             label: 'RAM',
+    //             backgroundColor: 'red',
+    //             borderColor: 'black',
+    //             fill: false,
+    //             data: [75],
+    //             tension: 0.1
+    //         },
+
+    //         {
+    //             label: 'DISCO',
+    //             backgroundColor: 'blue',
+    //             borderColor: 'black',
+    //             fill: false,
+    //             data: [55],
+    //             tension: 0.1
+    //         }
+    //         ]
+    //     };
+
+    //     var options = {
+    //         responsive: true,
+    //         plugins: {
+    //             title: {
+    //                 display: true,
+    //                 text: 'Monitoração dos principais componentes (Em %)',
+    //                 font: {
+    //                     size: 16,
+    //                     color: '#ff5733' // Altere a cor aqui
+    //                 }
+    //             }
+    //         }
+    //     };
+
+    //     var Grafico_Principal = new Chart(ctx, {
+    //         type: 'bar',
+    //         data: data,
+    //         options: options
+    //     });
+    // }
+</script>
+
+<!-- Meu script -->
+<!-- <script>
+
+    function obterDadosGrafico() {
+        fetch(`/dashboard/obterDadosGrafico`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    plotarGrafico(resposta);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function plotarGrafico(resposta) {
+        // Criando estrutura para plotar gráfico - labels
+        let labels = [];
+        // 
+        // Criando estrutura para plotar gráfico - dados
+        let data = {
+            labels: labels,
+            datasets: [{
+                label: 'CPU usage',
+                data: [],
+                backgroundColor: ['rgb(0, 99, 140)', 'rgb(0, 99, 90)'],
+                borderColor: '#fff',
+                borderwidth: 1
+            }]
+        };
+        const config = {
+            type: 'line',
+            data: data,
+        };
+
+        console.log('iniciando plotagem do gráfico...');
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+
+
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            // labels.push(registro.Novo_Testamento);
+            labels.push(registro.dtHora);
+            data.datasets[0].data.push(registro.dadoCapturado); // dadoCapturado é o nome da coluna do mySQL
+            // dados.datasets[0].data.push(registro.Novo_Testamento);
+            // dados.datasets[1].data.push(registro.temperatura);
+        }
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log(resposta)
+    }
+    // setInterval(plotarGrafico, 3000);
+</script> -->

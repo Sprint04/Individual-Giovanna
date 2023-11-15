@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrackWare - Planos</title>
+    <link rel="stylesheet" href="css/planos.css">
+    <link rel="shortcut icon" href="assets/logo-icon.png" type="image/x-icon">
+
+</head>
+<div>
+        <!-- HOME SITE -->
+        <div class="home">
+
+          <!-- BARRA DE PROGRESSÃO DA COMPRA -->
+          <div class="container-barra">
+            <ul class="barra">
+              <li class="active">Planos</li>
+              <li>Forma de pagamento</li>
+              <li>Confirma Compra</li>
+            </ul>
+          </div>
+
+          <!-- PARTE DE CIMA DO CARD -->
+        <div class="header-pagina">
+            <div id="planos">Escolha um plano <b>Premium</b></div>
+            <div class="line"></div>
+        </div>
+
+        <!-- CARDS -->
+        <div class="container-cards">
+          
+            <div class="cards">
+              <!-- BOX = QUADRADO ROXO EM CIMA DOS CARDS -->
+                <div class="box"></div>
+                    <div class="header-cards">
+                    <p class="titulo">
+                        Plano Gratuito
+                    </p>
+                    <!-- PARTE DOS PREÇOS-->
+                    <div class="preco">
+                        <span>R$</span>0
+                        <span></span>
+                    </div>
+                    </div>
+
+                <div>
+                  <!-- LISTAS DOS COMPONENTES -->
+                  <ul class="container-lista">
+                    <li class="lista">
+                      <span>
+                        <img class="icon" src="./assets/coroa.png" alt="">
+                      </span>
+                      <p>
+                        Conexão com até 50 Computadores
+                      </p>
+                    </li>
+
+                    <li class="lista">
+                      <span>
+                        <img class="icon" src="./assets/v.png" alt="">
+                      </span>
+                      <p>
+                        Monitoramento de CPU
+                      </p>  
+                    </li>
+
+                    <li class="lista">
+                      <span>
+                        <img class="icon" src="./assets/v.png" alt="">
+                      </span>
+                      <p>
+                        
+                        Monitoramento de RAM
+                      </p>
+                    </li>
+
+                    <li class="lista">
+                      <span>
+                        <img class="icon" src="./assets/v.png" alt="">
+                      </span>
+                      <p>
+                        Monitoramento de Memória
+                      </p>
+                    </li>
+
+                    <li class="lista">
+                        <span>
+                            <img class="icon" src="./assets/x.png" alt="">
+                        </span>
+                        <p>
+                          Monitoramento de Entradas USB
+                        </p>
+                      </li>
+
+                      <li class="lista">
+                        <span>
+                            <img class="icon" src="./assets/x.png" alt="">
+                        </span>
+                        <p>
+                          Monitoramento de Rede
+                        </p>
+                      </li>
+
+                      <li class="lista">
+                        <span>
+                            <img class="icon" src="./assets/x.png" alt="">
+                        </span>
+                        <p>
+                          Monitoramento de Janelas
+                        </p>
+                      </li>
+
+                  </ul>
+                </div>
+
+                <div class="button-container">
+                  <button type="button" onclick="btnAssinarGratuito()">
+                    Assinar
+                  </button>
+                </div>
+              </div> 
+
+              <!-- 2 CARD -->
+              <div class="cards">
+                <span class="popular"></span>
+
+                <div class="box"></div>
+
+                <div class="header-cards">
+                  <p class="titulo">
+                    Plano Purple
+                  </p>
+
+                  <div class="preco">
+                    <span>R$</span>99,90
+                    <span>/Mês</span>
+                  </div>
+                </div>
+
+                <div>
+                  <ul class="container-lista">
+
+                    <li class="lista">
+                      <span>
+                        <img class="icon" src="./assets/coroa.png" alt="">
+                      </span>
+                      <p>
+                        Conexão com até 700 Computadores
+                      </p>
+                    </li>
+
+                    <li class="lista">
+                      <span>
+                        <img class="icon" src="./assets/v.png" alt="">
+                      </span>
+                      <p>
+                        Monitoramento de CPU
+                      </p>
+                    </li>
+
+                    <li class="lista">
+                      <span>
+                        <img class="icon" src="./assets/v.png" alt="">
+                      </span>
+                      <p>
+                        Monitoramento de RAM
+                      </p>
+                    </li>
+
+                    <li class="lista">
+                      <span>
+                        <img class="icon" src="./assets/v.png" alt="">
+                      </span>
+                      <p>
+                        Monitoramento de Memória
+                      </p>
+                    </li>
+
+                    <li class="lista">
+                        <span>
+                            <img class="icon" src="./assets/v.png" alt="">
+                        </span>
+                        <p>
+                          Monitoramento de Entradas USB
+                        </p>
+                      </li>
+
+                      <li class="lista">
+                        <span>
+                            <img class="icon" src="./assets/x.png" alt="">
+                        </span>
+                        <p>
+                          Monitoramento de Rede
+                        </p>
+                      </li>
+
+                      <li class="lista">
+                        <span>
+                            <img class="icon" src="./assets/x.png" alt="">
+                        </span>
+                        <p>
+                          Monitoramento de Janelas
+                        </p>
+                      </li>
+
+                  </ul>
+                </div>
+
+                <div class="button-container">
+                  <button type="button" onclick="btnAssinarPurple()">
+                    Assinar
+                  </button>
+                </div>
+              </div>
+
+              <!-- 3 CARD -->
+              <!-- ICONE DO FOGUETE DO PLANO BLACK -->
+              <img class="icon-cima" src="./assets/foguete.png" alt=""> 
+              <div class="cards">
+                <span class="recomendado"></span>
+
+                <div class="box"></div>
+
+                <div class="header-cards">
+                  <p class="titulo">
+                    Plano Black
+                  </p>
+
+                  <div class="preco">
+                    <span>R$</span>849,99
+                    <span>/Mês</span>
+                  </div>
+                </div>
+
+                <div>
+                  <ul class="container-lista">
+
+                    <li class="lista">
+                      <span>
+                        <img class="icon" src="./assets/coroa.png" alt="">
+                        </svg>
+                      </span>
+                      <p>
+                        Conexão <b style="color: rgb(255, 208, 0); font-weight: 600;">ILIMITADA</b> de Computadores
+                      </p>
+                    </li>
+
+                    <li class="lista">
+                      <span>
+                        <img class="icon" src="./assets/v.png" alt="">
+                      </span>
+                      <p>
+                        Monitoramento de CPU
+                      </p>
+                    </li>
+
+                    <li class="lista">
+                      <span>
+                        <img class="icon" src="./assets/v.png" alt="">
+                      </span>
+                      <p>
+                        Monitoramento de RAM
+                      </p>
+                    </li>
+
+                    <li class="lista">
+                      <span>
+                        <img class="icon" src="./assets/v.png" alt="">
+                      </span>
+                      <p>
+                        Monitoramento de Memória
+                      </p>
+                    </li>
+
+                    <li class="lista">
+                        <span>
+                            <img class="icon" src="./assets/v.png" alt="">
+                        </span>
+                        <p>
+                          Monitoramento de Entradas USB
+                        </p>
+                      </li>
+
+                      <li class="lista">
+                        <span>
+                            <img class="icon" src="./assets/v.png" alt="">
+                        </span>
+                        <p>
+                          Monitoramento de Rede
+                        </p>
+                      </li>
+
+                      <li class="lista">
+                        <span>
+                            <img class="icon" src="./assets/v.png" alt="">
+                        </span>
+                        <p>
+                          Monitoramento de Janelas
+                        </p>
+                      </li>
+
+                  </ul>
+                </div>
+
+                <div class="button-container">
+                  <button type="button" onclick="btnAssinarBlack()">
+                    Assinar
+                  </button>
+                </div>
+              </div>
+
+    </div>
+
+</body>
+</html>
+
+<script>
+    function btnAssinarGratuito() {
+      setTimeout(function () {
+                        window.location = "formaPagamento.html";
+                    }, 1000); 
+                    sessionStorage.setItem('idPlano', '1');
+                    sessionStorage.setItem('nomePlano', 'Gratuito');
+                    sessionStorage.setItem('valorPlano', '0');
+    }
+
+    function btnAssinarPurple() {
+      setTimeout(function () {
+                        window.location = "formaPagamento.html";
+                    }, 1000); 
+                    sessionStorage.setItem('idPlano', '2');
+                    sessionStorage.setItem('nomePlano', 'Purple');
+                    sessionStorage.setItem('valorPlano', '99,90');
+    }
+
+    function btnAssinarBlack() {
+      setTimeout(function () {
+                        window.location = "formaPagamento.html";
+                    }, 1000); 
+                    sessionStorage.setItem('idPlano', '3');
+                    sessionStorage.setItem('nomePlano', 'Black');
+                    sessionStorage.setItem('valorPlano', '349,99');
+    }
+</script>

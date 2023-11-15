@@ -1,0 +1,395 @@
+@import url('https://fonts.cdnfonts.com/css/metrophobic');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 98.5vw;
+    height: 95.5vh;
+    /*background-color: #000000;*/
+    background-image:url(../assets/fundo.png);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* todos os títulos (login, cadastro colaborativo, cadastro empresarial) */
+h1 {
+    font-weight: bold;
+    margin: 0;
+    font-size: 190%;
+    color: #aa00ff;
+    font-family: 'Poppins', sans-serif;
+    width: 100%; 
+    margin-top: 2vh;
+}
+
+p {
+    font-size: 80%;
+    font-weight: light;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    margin: 20px 0 30px;
+    color: #ffffff;
+    margin-bottom: 6vh;
+}
+
+span {
+    font-size: 10px;
+}
+
+a {
+    color: #aa00ff;
+    font-size: 100%;
+    text-decoration: none;
+    margin: 25px 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* caixa que contém o login e o cadastro */
+/*  */
+.container {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(17, 17, 17, 0.22);
+    position: relative;
+    overflow: hidden;
+    width: 73vw;
+    /*  height: 100vh; */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2vh;
+    background-color:white;
+    border-radius: 30px;
+}
+
+.container2 {
+    
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+
+/* botão de voltar para home que fica na parte de cadastrar colaborador */
+.botao-voltar-colaborativo {
+    font-size: 2vh;
+    width: auto;
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: #aa00ff;
+    margin-top: 12vh;
+}
+
+/* botão de voltar para home que fica na parte de cadastrar empresa */
+.botao-voltar-empresarial {
+    font-size: 2vh;
+    width: auto;
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: #aa00ff;
+    margin-top: 2vh;
+}
+
+/* botão de voltar para home que fica na parte do login */
+.botao-voltar-login {
+    font-size: 2vh;
+    width: auto;
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: #aa00ff;
+    margin-top: 20vh;
+}
+
+
+/* botao congruente para efetuar cadastro da empresa e do colaborador ou o login/entrar */
+.botao {
+    border-radius: 300px 20px 300px 20px;
+    border: none;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 7px 40px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 20px ease-in;
+    margin-top: -2vh;
+}
+
+.botao:active {
+    transform: scale(0.95);
+}
+
+/* botao que serve para inverter as partes, troca o login pelo cadastro */
+.botao.ghost {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* container do login */
+.form {
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 50px;
+    height: 100%;
+    text-align: center;
+    margin-top: 10vh;
+}
+
+/* container do cadastro de um colaborador */
+.formCadastroUsuario {
+    background-color: #ffffff;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 50px;
+    height: 100%;
+    text-align: center;
+    margin-top: 10vh;
+    overflow: auto;
+}
+
+::-webkit-scrollbar{
+    width: 20px;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #6E43B9;
+}
+
+/* frase de transição entre o cadastro de usuário e o cadastro empresarial */
+.frase-cadastro-usuario {
+    margin-top: 3vh;
+}
+
+.frase-cadastro-usuario span {
+    font-size: 2vh;
+}
+
+/* botão de "Clique Aqui" para mudar a tela de cadastro de usuário para a de cadastro empresarial */
+.botao-cadastrar-usuario {
+    font-size: 2vh;
+    width: auto;
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: #aa00ff;
+}
+
+/* container do cadastro de uma empresa */
+.formCadastroEmpresa {
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 50px;
+    height: 100%;
+    text-align: center;
+    margin-top: 14vh;
+}
+
+/* frase de transição entre o cadastro de empresa e o cadastro de usuário */
+.frase-cadastro-empresa {
+    margin-top: 2vh;
+}
+
+.frase-cadastro-empresa span {
+    font-size: 2vh;
+}
+
+/* estilização das inputs */
+
+.input-group {
+
+    position: relative;
+    
+    }
+    
+    .input-group__input{
+    
+        margin-top: 20px;
+        margin-bottom: 2px;
+        padding: 12px 15px;
+        margin: 10px 0;
+        width: 100%;
+        outline: none;
+        height: 20px;
+        border: 0;
+        border-bottom: 1px solid rgb(33, 32, 32);
+        text-align: start;
+        font-size: medium;
+        background-color: transparent;
+        transition: border-bottom 500ms;
+        
+    
+    }
+    
+    .input-group__input:is(:focus, :valid){
+    
+        border-bottom: 1px solid rgb(0, 0, 0);
+    
+    }
+    
+    .input-group__label{
+    
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(10px, 10px);
+        transform-origin: left;
+        transition: transform 0.25s;
+    
+    }
+    
+    .input-group__input:focus + 
+    .input-group__label,
+    .input-group__input:valid +
+    .input-group__label{
+    
+        transform: translate(0, -10px) scale(0.8);
+        color: #000000;
+    
+    
+    }
+
+/* titulo Login */
+.inps {
+    position: relative;
+    bottom: 1vh;
+}
+
+/* parte do cadastro */
+.form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+}
+
+.sign-in-container {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+.container.right-panel-active .sign-in-container {
+    transform: translateX(100%);
+}
+
+.sign-up-container {
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+
+.container.right-panel-active .sign-up-container {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: show 0.6s;
+}
+
+@keyframes show {
+
+    0%,
+    49.99% {
+        opacity: 0;
+        z-index: 1;
+    }
+
+    50%,
+    100% {
+        opacity: 1;
+        z-index: 5;
+    }
+}
+
+/* o que acontece durante a transição */
+
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 100;
+}
+
+.container.right-panel-active .overlay-container {
+    transform: translateX(-100%);
+}
+
+.overlay {
+    background: #000000;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.container.right-panel-active .overlay {
+    transform: translateX(50%);
+}
+
+.overlay-panel {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.overlay-left {
+    transform: translateX(-20%);
+}
+
+.container.right-panel-active .overlay-left {
+    transform: translateX(0);
+}
+
+.overlay-right {
+    right: 0;
+    transform: translateX(0);
+}
+
+.container.right-panel-active .overlay-right {
+    transform: translateX(20%);
+}
+
+.overlay p {
+    font-weight: 500;
+    width: 80%;
+}
+

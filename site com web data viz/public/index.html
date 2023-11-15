@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Inter:wght@100&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="shortcut icon" href="assets/logo-icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>TrackWare Systems</title>
+
+</head>
+
+<!--
+    SITE PARA FAZER AS DIVISÕES + VIDEO EXPLICATIVO 
+    https://www.youtube.com/watch?v=0QTzTOJCzLY (vídeo em inglês)
+    https://www.shapedivider.app/
+
+    SITE PARA FAZER GRADIENT
+    https://cssgradient.io/
+-->
+
+<body>
+    <!-- INICIO NAV BAR -->
+    <div class="div-principal">
+        <nav class="navbar">
+            <div class="navbar-items">
+                <ul>
+                    <li><a href="#sobre-nos">Empresa</a></li>
+                    <li><a href="#nossa-equipe">Equipe</a></li>
+                    <li>
+                        <div class="navbar-logo"><img src="assets/logo-icon.png" alt="Logo ícone"
+                                    width="60" height="60" style="position: relative; top: -15px;"></div>
+                    </li>
+                    <li><a href="#rodape">Contato</a></li>
+                    <li><a href="#nossos-servicos">Serviços</a></li>
+                    <button class="button-entrar" id="entrar" onclick="btnAcesso()">Acessar</button>
+                </ul>
+            </div>
+            <!-- <div class="navbar-direita">
+                <a href="Cadastro_Login.html">Cadastre-se</a>
+            </div> -->
+
+
+        </nav>
+        <!-- FIM NAV BAR -->
+        <!-- HOME SITE -->
+        <div id="homeMain" class="home-main">
+            <div class="main-texto">
+                <span id="TrackWare-titulo"> TRACK<b>WARE</b> </span>
+                <span id="TrackWare-subtitulo"> LOGISTICS SYSTEMS </span>
+                <p id="part1"> Potencializando a logística com tecnologia.</p>
+                <p id="part2">Com precisão e qualidade, TrackWare guia sua realidade!</p>
+                <button class="button-saibaMais" onclick="btnSaibaMais()">Saiba mais</button>
+            </div>
+
+            <div class="ilustracao-home">
+                <img id="imagemHome" src="assets/Data extraction-amico (1).png" alt="Extração de Data ilustração">
+            </div>
+
+            <!-- DIVISOR DA SECTION -->
+            <div class="custom-shape-divider-bottom-1692911528">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                    preserveAspectRatio="none">
+                    <path
+                        d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+                        opacity=".25" class="shape-fill"></path>
+                    <path
+                        d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+                        opacity=".5" class="shape-fill"></path>
+                    <path
+                        d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+                        class="shape-fill"></path>
+                </svg>
+            </div>
+        </div>
+        <!-- FIM 1° SECTION-->
+        <section>
+            <div class="back-sobre-nos">
+                <div id="sobre-nos" class="sobre-nos">
+                    <div class="section-sobre">
+
+                        <div class="texto-sobre-nos">
+                            <h1>SOBRE A EMPRESA</h1>
+                            <div class="line"></div>
+                            <br>
+
+                            <p class="p1">
+                                A Trackware é uma empresa de monitoramento de hardwares em tempo real e possui como
+                                público-alvo empresas de logística, as quais representam um dos principais pilares para
+                                satisfação do cliente final. Proporcionamos um local seguro e o acesso a informações
+                                úteis
+                                para o seu negócio.
+
+                            </p>
+
+
+                            <img src="assets/sobre-nos.png">
+
+
+                            <p class="p2">
+                                Apenas conosco você encontrará a disponibilização de informações úteis sobre a
+                                saúde dos componentes físicos da suas 
+                                máquinas, a redução de riscos de sobrecargas e quedas nos sistemas da sua empresa e um
+                                aumento significativo de assertividade em tomadas de decisões e previsões de
+                                tendências.<br>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Inicio cards valores -->
+
+                <div class="cards" id="valores">
+                    <div class="cardDesc">
+                        <div class="cardCont">
+                            <br>
+                            <div class="card1">
+
+                                <label>
+                                    <div class="texto2">
+                                        <h2>MISSÃO</h2>
+                                        Nossa missão é fornecer soluções de monitoramento de hardware para empresas de
+                                        logística, garantindo a disponibilidade contínua e o desempenho otimizado de
+                                        seus
+                                        sistemas.
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="line2"></div>
+
+                        <div class="cardCont">
+                            <br>
+                            <div class="card2">
+
+                                <label>
+                                    <div class="texto2">
+                                        <h2>VISÃO</h2>
+                                        Ser líder em monitoramento de hardware para empresas de logística, oferecendo
+                                        inovação
+                                        tecnológica para um ambiente digital seguro, livre de interrupções e
+                                        sobrecargas.
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="line2"></div>
+
+                        <div class="cardCont">
+                            <br>
+                            <div class="card3">
+                                <label>
+                                    <div class="texto2">
+                                        <h2>VALORES</h2>
+                                        Dentre os nossos valores, temos: excelência técnica, foco no atendimento das
+                                        necessidades
+                                        do cliente, melhoria contínua, transparência, honestidade e modernidade.
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Serviços -->
+
+        <section>
+            <div class="servicos" id="nossos-servicos">
+
+                <div class="servicosDesc">
+
+                    <h1>NOSSOS SERVIÇOS</h1>
+
+                    <div class="line3">-</div>
+
+                    <p class="subtitulo">Nós oferecemos o melhor atendimento!</p>
+
+                    <div class="servicosCont">
+                        <br>
+                        <div class="servicoBox">
+
+                            <label>
+                                <h2>Suporte</h2>
+                                <br><br>
+                                <div class="texto">
+                                    O suporte constante é essencial para se manter um uptime dos serviços, oferecendo
+                                    insights para seu negócio.
+
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+
+                    <div class="servicosCont">
+                        <br>
+                        <div class="servicoBox">
+                            <label>
+                                <h2>Monitoramento</h2>
+                                <br><br>
+                                <div class="texto">
+                                    Faremos o monitoramento de hardwares de forma eficaz para prevenir sobrecargas
+                                    desnecessárias nas máquinas.
+
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="servicoCont">
+                        <br>
+                        <div class="servicoBox">
+                            <label>
+                                <h2>Análise</h2>
+                                <br><br>
+                                <div class="texto">
+                                    Os dados, depois de tratados, serão apresentados em um painel de controle, o qual
+                                    será
+                                    gerenciado pelo usuário.
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+                <img src="assets/serviços (2).png">
+            </div><br><br>
+        </section>
+
+        <!-- FIM DA 2º SECTION -->
+
+        <!-- Inicio nossa equipe -->
+
+
+        <div class="nossa-equipe">
+            <h2 id="nossa-equipe">NOSSA EQUIPE</h2>
+            <div class="line5"></div>
+            <div class="caixa-equipe">
+                <div class="cards-equipe">
+                    <div class="card-foto">
+                        <div class="card-desc2">
+                            <img id="perfil" src="assets/everton.png" height="330" alt="">
+                        </div>
+                        <div class="card-desc">
+                            <h2 id="nome-equipe">Everton Araújo</h2>
+                            <div class="texto3">Developer Back-end</div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-foto">
+                        <div class="card-desc2">
+                            <img id="perfil" src="assets/gustavo.png" height="330px" alt="">
+                        </div>
+                        <div class="card-desc">
+                            <h2 id="nome-equipe">Gustavo Albino</h2>
+                            <div class="texto3">Developer Full-stack</div>
+                        </div>
+                    </div>
+                    <div class="card-foto">
+                        <div class="card-desc2">
+                            <img id="perfil" src="assets/cesar.png" height="330px" alt="">
+                        </div>
+                        <div class="card-desc">
+                            <h2 id="nome-equipe">César Martins</h2>
+                            <div class="texto3">Chief Executive Officer</div>
+                        </div>
+                    </div>
+                    <div class="card-foto">
+                        <div class="card-desc2">
+                            <img id="perfil" src="assets/giovanna.png" height="330px" alt="">
+                        </div>
+                        <div class="card-desc">
+                            <h2 id="nome-equipe">Giovanna Ávila</h2>
+                            <div class="texto3">Product Manager</div>
+                        </div>
+                    </div>
+                    <div class="card-foto">
+                        <div class="card-desc2">
+                            <img id="perfil" src="assets/nathan.png" height="330px" alt="">
+                        </div>
+                        <div class="card-desc">
+                            <h2 id="nome-equipe">Nathan Ribeiro</h2>
+                            <div class="texto3">Chief Technology Officer</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+<!-- 
+        <section>
+            <div class="sabermais" id="saber-mais">
+
+                <div class="saiba">
+
+                    <h1>QUER ADQUIRIR OS NOSSOS SERVIÇOS?</h1>
+
+                    <div class="line-cadastro">-</div>
+
+                    <p class="subtitulo-saiba">Registre-se para usufruir de um substancial incremento de valor e
+                        eficiência para o seu empreendimento! Se já é um cliente fidelizado, por favor, efetue o login
+                        para
+                        acessar uma ampla gama de oportunidades disponíveis.</p>
+
+                    <button class="button-cadastro"><a href="cadastro.html">Cadastre-se</a> </button>
+                </div>
+            </div>
+        </section> -->
+
+
+        <!-- Rodapé -->
+
+        <div class="back-footer">
+            <footer>
+
+                <div id="rodape">
+
+                    <div class="custom-shape-divider-top-1694045992">
+                        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                            preserveAspectRatio="none">
+                            <path
+                                d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+                                opacity=".25" class="shape-fill"></path>
+                            <path
+                                d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+                                opacity=".5" class="shape-fill"></path>
+                            <path
+                                d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+                                class="shape-fill"></path>
+                        </svg>
+                    </div>
+
+                    <div id="footer_contacts">
+                        <h3>TRACK<span>WARE</span></h3>
+                        <a>Com precisão e qualidade, TrackWare guia sua realidade!</a>
+
+                        <div class="icons">
+                            <a href="#" class="icon icon--instagram">
+                                <i class="ri-instagram-line"></i>
+                              </a>
+
+                              <a href="#" class="icon icon--linkedin">
+                                <i class="ri-linkedin-line"></i>
+                              </a>
+
+                            <a href="#" class="icon icon--whatsapp">
+                                <i class="ri-whatsapp-line"></i>
+                            </a>
+                        </div>
+
+
+                    </div>
+
+                    <div class="footer-list">
+                        <li>
+                            <h3>Serviços</h3>
+                        </li>
+                        <li><a href="#valores" class="footer-link">Valores</a></li>
+                        <li><a href="#nossos-servicos" class="footer-link">Ferramentas</a></li>
+                        <li><a href="#avaliacoes" class="footer-link">Avaliações</a></li>
+                    </div>
+
+                    <ul class="footer-list-contato">
+                        <li>
+                            <h3>Contato</h3>
+                        </li>
+                        <li>
+                            <a href="#" class="footer-link">trackwaresptech@outlook.com</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer-link">55 11954312089</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer-link">Rua Haddock Lobo,595<br>São Paulo-SP,01414-001</a>
+                        </li>
+                    </ul>
+
+                    <!-- <div id="email">
+                        <h3>Inscreva-se</h3>
+                        <p>
+                            Digite seu email para ser notificado sobre nossas novas novidades ou fale conosco!
+                        </p>
+                        <p class="notes" contenteditable="true"></p>
+
+                        <div id="input_group">
+                            <input type="email" id="email">
+                            <button>
+                                <i class="fa-regular fa-envelope"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div> -->
+
+                <div id="copyright">
+                    &#169
+                    TrackWare 2023
+                </div>
+
+
+            </footer>
+
+        </div>
+    </div>
+
+    <!-- Botão Para ir pro inicio da pagina -->
+
+    <button id="scrollTopButton" class="back-to-top"><i class="fas fa-arrow-up"></i> </button>
+
+
+</body>
+
+</html>
+
+<script>
+
+    function btnAcesso() {
+        window.location.href = "cadastro.html"
+    }
+
+    function btnSaibaMais() {
+        window.location.href = "saibaMais.html"
+    }
+
+    //!!!! ESSE CÓDIGO PEGA TODOS OS ELEMENTOS QUE TEM O ATRIBUTO HREF E FAZ ESSA TRANSIÇÃO SUAVE, VE SE NÃO É MAIS INTERESSANTE QUE FAZER UMA CONST PARA CADA ELEMENTO QUE PRECISA DO HREF
+    // SE NÃO FOR, ARRUMAR AS TRANSIÇÕES DO RODAPÉ (ABA DE SERVIÇOS) POR FAVOR!!!!
+    
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+    
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+     
+
+    // Rolamento para cada sessão do site e depois para o topo do site
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const scrollTopButton = document.getElementById("scrollTopButton");
+
+        scrollTopButton.addEventListener("click", function () {
+            // Role suavemente para o topo da página
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    });
+
+</script>

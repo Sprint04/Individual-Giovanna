@@ -1,0 +1,228 @@
+@media screen and (max-width: 768px) {
+    body {
+        background-color: #ffffff;
+    }
+
+    /* titulo login */
+    .inps h1 {
+        font-size: 120%;
+        width: 70%;
+    }
+
+    /* titulo  "Bem-vindo(a) de volta" e "É novo por aqui?" */
+    .overlay h1 {
+        font-size: 120%;
+        width: 50%;
+        margin-bottom: 4vh;
+    }
+
+    /* titulo: cadastro empresarial */
+    .formCadastroEmpresa h1 {
+        font-size: 120%;
+        width: 70%;
+        margin-left: 4vh;
+        margin-top: 8vh;
+    }
+
+    /* titulo: cadastro colaborador */
+    .formCadastroUsuario h1 {
+        font-size: 120%;
+        width: 70%;
+        margin-left: 4vh;
+        margin-bottom: 2vh;
+        margin-top: 6vh;
+    }
+
+
+    p {
+        font-size: 65%;
+    }
+
+    span {
+        font-size: 10px;
+    }
+
+    a {
+        font-size: 70%;
+    }
+
+    /* botão de voltar para home que fica na parte do login */
+    .botao-voltar-login {
+        width: 190%;
+    }
+
+    /* caixa que contém o login e o cadastro */
+    .container {
+        width: 105vw;
+        height: 105vh;
+        z-index: 2;
+    }
+
+    /* container do login */
+    .form {
+        margin-top: 13.5vh;
+    }
+
+    /* container do cadastro de um colaborador */
+    .formCadastroUsuario {
+        display: block;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 5px;
+        height: 100%;
+        text-align: center;
+        margin-top: 29vh;
+        margin-left: 0vh;
+    }
+
+    /* frase de transição entre o cadastro de usuário e o cadastro empresarial */
+    .frase-cadastro-usuario {
+        margin-top: 4vh;
+        margin-bottom: -5vh;
+    }
+
+    .frase-cadastro-usuario span {
+        font-size: 2vh;
+    }
+
+    /* container do cadastro de uma empresa */
+    .formCadastroEmpresa {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 5px;
+        height: 100%;
+        text-align: center;
+        margin-top: 11vh;
+    }
+
+    /* frase de transição entre o cadastro de empresa e o cadastro de usuário */
+    .frase-cadastro-empresa {
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+    }
+
+    .frase-cadastro-empresa span {
+        font-size: 2vh;
+    }
+
+
+    /* Parte do Cadastro */
+
+    .form-container {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        transition: all 0.6s ease-in-out;
+    }
+
+    .sign-in-container {
+        left: 0;
+        width: 50%;
+        z-index: 2;
+    }
+
+    .container.right-panel-active .sign-in-container {
+        transform: translateX(100%);
+    }
+
+    .sign-up-container {
+        left: 0;
+        width: 50%;
+        opacity: 0;
+        z-index: 1;
+    }
+
+    .container.right-panel-active .sign-up-container {
+        transform: translateX(100%);
+        opacity: 1;
+        z-index: 5;
+        animation: show 0.6s;
+        top: -25vh;
+    }
+
+    @keyframes show {
+
+        0%,
+        49.99% {
+            opacity: 0;
+            z-index: 1;
+        }
+
+        50%,
+        100% {
+            opacity: 1;
+            z-index: 5;
+        }
+    }
+
+    /* o que acontece durante a transição */
+
+    .overlay-container {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+        transition: transform 0.6s ease-in-out;
+        z-index: 100;
+    }
+
+    .container.right-panel-active .overlay-container {
+        transform: translateX(-100%);
+    }
+
+    .overlay {
+        background: #000000;
+        position: relative;
+        left: -100%;
+        height: 100%;
+        width: 200%;
+        transform: translateX(0);
+        transition: transform 0.6s ease-in-out;
+    }
+
+    .container.right-panel-active .overlay {
+        transform: translateX(50%);
+    }
+
+    .overlay-panel {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        top: 0;
+        height: 100%;
+        width: 50%;
+        transform: translateX(0);
+        transition: transform 0.6s ease-in-out;
+    }
+
+    .overlay-left {
+        transform: translateX(-20%);
+    }
+
+    .container.right-panel-active .overlay-left {
+        transform: translateX(0);
+    }
+
+    .overlay-right {
+        right: 0;
+        transform: translateX(0);
+    }
+
+    .container.right-panel-active .overlay-right {
+        transform: translateX(20%);
+    }
+
+    .overlay p {
+        font-weight: 500;
+        width: 80%;
+    }
+
+}

@@ -1,0 +1,1002 @@
+@import url('https://fonts.cdnfonts.com/css/metrophobic');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #FAFAFA;
+}
+
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #6E43B9;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #2A327A;
+}
+
+
+/* NAV BAR */
+
+.navbar {
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 3px;
+    font-size: 20px;
+    display: flex;
+    background: #000000;
+    justify-content: space-between;
+    align-items: center;
+    color: #FAFAFA;
+    padding: 2% 1%;
+}
+
+.navbar-items ul {
+    list-style: none;
+    margin-left: 30vw;
+    padding: 0;
+    display: flex;
+}
+
+.navbar-items li {
+    margin: 0 20px;
+}
+
+.navbar-items a {
+    text-decoration: none;
+    color: #FAFAFA;
+}
+
+.navbar li a:hover {
+    /*'animação' dos links, quando passar o mouse troca a cor em 0.5 segundos*/
+    color: #8800ff;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.button-entrar {
+    position: absolute;
+    left: 81%;
+    top: 5%;
+    background: #8800ff;
+    color: #fff;
+    border: #8800ff;
+    border-radius: 20px;
+    width: 200px;
+    height: 60px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 23px;
+    transition: 0.5s;
+    box-shadow: 0 0 7px #6a23bc;
+}
+
+.button-entrar:hover {
+    color: #ffffff;
+    transition: 0.5s;
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.2);
+    background-color: #50008a;
+    transition-duration: 0.3s;
+    box-shadow: 0 0 7px #d5b1ff;
+    /*duração da transição da animação*/
+}
+
+.navbar .navbar-logo{
+    transition:1.5s; /* Transition duration */
+}
+.navbar .navbar-logo:hover{
+    transform:rotate(360deg); /* How many times it'll rotate = degrees÷360 */
+}
+
+/* SECTION: HOME */
+
+#homeMain {
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    background: #FAFAFA;
+    background: linear-gradient(0deg, rgb(160, 160, 160) 0%, rgb(0, 0, 0) 100%);
+    height: 65vh;
+    position: relative;
+    padding: 5vb;
+    margin-bottom: 15vh;
+    margin-left: 0vw;
+}
+
+/* caixa que engloba todos os textos da home */
+.main-texto {
+    margin: 0;
+    position: relative;
+    left: 5vw;
+    top: 10vh;
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 0vw;
+}
+
+/* frase: "Potencializando a logística com tecnologia." */
+#part1 {
+    margin-left: 0vw;
+    margin-top: 2vw;
+    margin-bottom: 0%;
+    font-weight: 700;
+    color: #fdfdfd;
+}
+
+/* slogan */
+#part2 {
+    margin-left: 0vw;
+    width: 40vw;
+    margin-top: 0vw;
+}
+
+/* titulo */
+#TrackWare-titulo {
+    font-weight: 300;
+    font-size: 80px;
+    margin-top: -5vw;
+    margin-left: 0vw;
+}
+
+/* animação do titulo */
+#TrackWare-titulo:hover {
+    color: #8800ff;
+    transition: 0.5s;
+}
+
+#TrackWare-subtitulo {
+    font-weight: light;
+    font-size: 22px;
+    margin-left: 0vw;
+}
+
+/* animação do subtitulo (logistics systems)*/
+#TrackWare-subtitulo:hover {
+    color: #8800ff;
+    transition: 0.5s;
+}
+
+/* botão home que direciona para o saiba mais */
+.button-saibaMais{
+    background: #8800ff;
+    color: #fff;
+    border: #8800ff;
+    border-radius: 20px;
+    margin-right: 10px;
+    width: 200px;
+    height: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 23px;
+    margin-left: -6px;
+    transition: 0.5s;
+}
+
+.button-saibaMais:hover {
+    color: #ffffff;
+    transition: 0.5s;
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.2);
+    background-color: #50008a;
+    transition-duration: 0.3s;
+    /*duração da transição da animação*/
+}
+
+/* imagem da home: hardware */
+.ilustracao-home {
+    position: relative;
+    top: -8vh;
+    right: -5vw;
+    z-index: 99;
+}
+
+#imagemHome {
+    width: 750px;
+    height: 750px;
+    margin-top: 8%;
+    animation: floating 2s ease-in-out infinite;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+
+/* animação da imagem flutuando */
+@keyframes floating {
+    0% {
+        transform: translate(0, 0px);
+    }
+
+    50% {
+        transform: translate(0, 15px);
+    }
+
+    100% {
+        transform: translate(0, -0px);
+    }
+}
+
+
+/* SECTION: SOBRE NÓS */
+.sobre-nos .section-sobre {
+    height: 110vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FAFAFA;
+    color: #000000;
+}
+
+/* titulo */
+.section-sobre .texto-sobre-nos h1 {
+    width: 60%;
+    font-size: 55px;
+    letter-spacing: 1px;
+    display: flex;
+    position: relative;
+    top: -5vh;
+    left: 73vh;
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+}
+
+/* sublinhado */
+.section-sobre .texto-sobre-nos .line {
+    height: 5px;
+    width: 62vh;
+    background-color: #8800ff;
+    position: relative;
+    bottom: 10vh;
+    left: 71vh;
+}
+
+/* texto de explicação sobre a empresa  */
+.p1 {
+    width: 75%;
+    font-size: 28px;
+    display: flex;
+    position: relative;
+    left: 25vh;
+    bottom: 6vh;
+    text-align: justify;
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+    line-height: 5vh;
+}
+
+/* tópicos de explicação sobre a empresa  */
+.p2 {
+    width: 39.3%;
+    font-size: 28px;
+    display: flex;
+    position: relative;
+    text-align: justify;
+    bottom: 80vh;
+    left: 100vh;
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+    line-height: 5vh;
+    top: -74vh
+}
+
+
+/* imagem */
+.section-sobre .texto-sobre-nos img {
+    width: 35%;
+    height: 70vh;
+    position: relative;
+    left: 20vh;
+    bottom: 16vh;
+}
+
+
+/* SECTION: MISSÃO, VISÃO E VALORES */
+
+/* retângulo maior que engloba todos os cards */
+.cardDesc {
+    height: 40vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #787878;
+    color: #ffffff;
+}
+
+.cardCont {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 0%;
+}
+
+/* título dentro de cada card */
+.texto2 h2 {
+    color: #ffffff;
+}
+
+/* animação do titulo */
+.texto2 h2:hover {
+    color: #6E43B9;
+    transition-duration: 0.6s;
+}
+
+/* texto dentro de cada card */
+.texto2 {
+    padding: 1.0em;
+    text-align: center;
+    height: 20vh;
+    font-size: 25px;
+    position: relative;
+    bottom: 6vh;
+}
+
+/* divisão entre os cards */
+.line2 {
+    height: 30vh;
+    width: 30px;
+    background-color: #ffffff;
+    position: relative;
+    right: 1vh;
+}
+
+/* card missão */
+.card1 {
+    height: 30vh;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+/* card visão */
+.card2 {
+    height: 30vh;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    right: 2vh;
+}
+
+/* card valores */
+.card3 {
+    height: 30vh;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    right: 2vh;
+}
+
+
+/* SECTION: SERVIÇOS */
+
+.servicos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
+    height: 100vh;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 10%;
+}
+
+.servicosDesc {
+    height: 130vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #000000;
+    position: relative;
+    left: 7vh;
+}
+
+/* titulo: nossos serviços */
+.servicos .servicosDesc h1 {
+    width: 60%;
+    font-size: 55px;
+    letter-spacing: 1px;
+    position: relative;
+    left: 36vh;
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+}
+
+/* sublinhado */
+.servicos .line3 {
+    background-color: #8800ff;
+    height: 5px;
+    width: 63vh;
+    position: relative;
+    left: 36vh;
+    bottom: 5vh;
+    color: #FAFAFA;
+}
+
+/* texto: "Nós oferecemos o melhor atendimento!" */
+.subtitulo {
+    width: 100%;
+    font-size: 38px;
+    position: relative;
+    left: 36vh;
+    bottom: 3vh;
+}
+
+/* imagem de serviços */
+.servicos img {
+    width: 70%;
+    height: 80vh;
+    position: relative;
+    right: 10vh;
+    top: 5vh;
+}
+
+/* titulos em cada caixa */
+.servicos .servicosDesc h2 {
+    font-size: xx-large;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    left: 5vh;
+}
+
+/* texto em cada caixa */
+.texto {
+    padding: 2.0em;
+    display: flex;
+    text-align: start;
+    font-size: x-large;
+    position: relative;
+    bottom: 12vh;
+    margin-top: -1vw;
+}
+
+/* caixas de apresentações de serviços */
+.servicoBox {
+    background-color: #000000;
+    height: 20vh;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    text-align: start;
+    color: #ffffff;
+    box-shadow: 1px 10px 10px 5px rgba(0, 0, 0, 0.384);
+    border-radius: 8px;
+}
+
+/* animação das caixas */
+.servicoBox:hover {
+    transform: scale(1.1);
+    transition: 0.7s ease-in-out;
+}
+
+
+/* SECTION: NOSSA EQUIPE */
+
+.nossa-equipe {
+    background-color: #FAFAFA;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    top: 10vh;
+    text-align: center;
+    height: 90vh;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* titulo: nossa equipe */
+#nossa-equipe {
+    width: 60%;
+    font-size: 55px;
+    letter-spacing: 1px;
+    display: flex;
+    margin-left: 39%;
+    top: 0vh;
+    left: 8vh;
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+    margin-top: -5%;
+    margin-bottom: 5%;
+}
+
+/* sublinhado */
+.line5 {
+    height: 5px;
+    width: 430px;
+    background-color: #8800ff;
+    margin-left: 38.5%;
+    margin-top: -5%;
+    margin-bottom: 3%;
+}
+
+/* área que engloba todos os cards */
+.caixa-equipe {
+    display: flex;
+    padding-left: 3.5%;
+    padding-right: 3.5%;
+}
+
+.cards-equipe {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+/* área com as fotos dos integrantes */
+.card-foto {
+    height: 500px;
+    width: 14.7%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 3px 10px 10px 5px rgba(0, 0, 0, 0.384);
+    border-radius: 1%;
+}
+
+/* div das imagens */
+.card-desc2 {
+    display: flex;
+    justify-content: center;
+}
+
+/* imagens */
+.nossa-equipe img {
+    position: relative;
+    top: 2.5vh;
+}
+
+/* área para ficar o nome e a função de cada integrante */
+.card-desc {
+    background-color: #FAFAFA;
+    height: 170px;
+    width: 100%;
+}
+
+/* nome dos integrantes */
+#nome-equipe {
+    font-size: x-large;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    top: 1vh;
+}
+
+/* função dos integrantes */
+.texto3 {
+    padding: 1.0em;
+    text-align: center;
+    height: 20vh;
+    font-size: large;
+    position: relative;
+    bottom: 1vh;
+    opacity: 0.8;
+    color: black;
+}
+
+/* SECTION: QUER FAZER PARTE DO NOSSO TIME? */
+
+.sabermais {
+    background-color: #FAFAFA;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    top: 8vh;
+    text-align: center;
+    height: 10vh;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 0;
+}
+
+/* titulo */
+.saiba h1 {
+    width: 60%;
+    font-size: 55px;
+    letter-spacing: 1px;
+    display: flex;
+    margin-left: 22%;
+    top: 0vh;
+    left: 8vh;
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+/* sublinhado */
+.line-cadastro {
+    height: 5px;
+    width: 58VW;
+    background-color: #8800ff;
+    position: relative;
+    left: 25rem;
+    bottom: 6rem;
+    color: #FAFAFA;
+}
+
+/* texto para chamar o usuário para se cadastrar ou efetuar login */
+.subtitulo-saiba {
+    width: 83%;
+    font-size: 28px;
+    position: relative;
+    left: 20vh;
+    bottom: 3vh;
+}
+
+/* botão que leva o usuário para a área de cadastro e login */
+.button-cadastro {
+    background: #a940ff;
+    color: #fff;
+    border: #aa49ff;
+    border-radius: 300px 30px 300px 30px;
+    margin-right: 10px;
+    width: 300px;
+    height: 100px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    margin-left: 41vw;
+}
+
+.button-cadastro a {
+    text-decoration: none;
+    color: white;
+}
+
+/* animação do botão (neon) */
+.button-cadastro:hover {
+    background: #ba7eff;
+    color: #050801;
+    box-shadow: 0 0 5px #d5b1ff,
+        0 0 25px #d0a7ff,
+        0 0 50px #d8b6ff,
+        0 0 200px #dbbbff;
+    -webkit-box-reflect: below 1px linear-gradient (transparent, #0005);
+}
+
+.button-cadastro:nth-child(1) {
+    filter: hue-rotate (270deg);
+}
+
+.button-cadastro:nth-child(2) {
+    filter: hue-rotate (110deg);
+}
+
+.button-cadastro {
+    position: absolute;
+    display: block
+}
+
+
+
+/* SECTION: RODAPÉ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap');
+
+.back-footer {
+    height: 600px;
+    padding-top: 30%;
+}
+
+:root {
+    --color-neutral-0: #0e0c0c;
+    --color-neutral-10: #171717;
+    --color-neutral-30: #a8a29e;
+    --color-neutral-40: #f5f5f5;
+
+}
+
+main {
+    height: 80vh;
+}
+
+footer {
+    width: 100%;
+    color: var(--color-neutral-40);
+    margin-bottom: -100vh;
+}
+
+#link {
+    text-decoration: none;
+}
+
+#rodape {
+    background-color: var(--color-neutral-10);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 8rem 5rem;
+    justify-content: space-around;
+    position: relative;
+    background: linear-gradient(0deg, rgb(0, 0, 0) 20%, rgb(48, 48, 48) 100%);
+}
+
+#footer_contacts h3 {
+    margin-bottom: 0.75rem;
+    font-size: xx-large;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}
+
+#footer_contacts h3 span {
+    font-weight: 750;
+}
+
+.footer-link  {
+
+    text-decoration: none;
+    color: var(--color-neutral-30);
+     
+}
+
+/*
+LINK CODIGO REDES
+https://github.com/bytesoftheweb/Reels/tree/main/Icons/02z
+*/
+
+.icons {
+	display: flex;
+    width: 10vw;
+    justify-content: space-evenly;
+    position: relative;
+    top: 1rem;
+    
+}
+
+.icon {
+	display: inline-flex;
+	width: 3rem;
+	height: 3rem;
+	text-decoration: none;
+	font-size: 1.4rem;
+	color: #fff;
+	border-radius: 50%;
+	outline: 2px solid #fff;
+	transition-property: outline-offset, outline-color, background-color;
+	transition-duration: 0.5s;
+}
+
+.icon:hover {
+	outline-offset: 4px;
+}
+
+.icon i {
+	margin: auto;
+}
+
+.icon:hover i {
+	animation: shake 0.25s;
+}
+
+.icon--instagram:hover {
+	background-image: radial-gradient(
+		circle at 30% 107%,
+		#fdf497 0%,
+		#fdf497 5%,
+		#fd5949 45%,
+		#d6249f 60%,
+		#285aeb 90%
+	);
+	outline-color: #a02d76;
+}
+
+.icon--linkedin:hover {
+	background-color: #0077b5;
+	outline-color: #0077b5;
+}
+
+.icon--whatsapp:hover {
+	background-color: #2ea44f;
+	outline-color: #2ea44f;
+}
+
+@keyframes shake{
+
+10% {
+
+    transform: rotate(15deg);
+
+}
+
+20% {
+
+    transform: rotate(-15deg);
+
+}
+
+30% {
+
+    transform: rotate(15deg);
+
+}
+
+40% {
+
+    transform: rotate(-15deg);
+
+}
+
+}
+
+#email {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+#email p {
+    color: var(--color-neutral-30);
+}
+
+#input_group {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-neutral-0);
+    border-radius: 4px;
+}
+
+#input_group input {
+    all: unset;
+    padding: 0.75rem;
+    width: 100%;
+}
+
+#input_group button {
+    background-color: #6E43B9;
+    border: none;
+    color: var(--color-neutral-40);
+    padding: 0px 1.25rem;
+    font-size: 1.125rem;
+    height: 100%;
+    border-radius: 0px 4px 4px 0px;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+#input_group button:hover {
+    opacity: 0.8;
+}
+
+#copyright {
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-neutral-0);
+    font-size: 0.9rem;
+    padding: 1.5rem;
+    font-weight: 100;
+}
+
+.footer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    list-style: none;
+}
+
+.footer-list-contato {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    list-style: none;
+}
+
+.footer-list .footer-link {
+    color: var(--color-neutral-30);
+    transition: all 0.4s;
+    text-decoration: none;
+}
+
+.footer-list .footer-link:hover {
+    color: #7f37c9;
+
+}
+
+.notes {
+
+    position: relative;
+    width: auto;
+    max-width: 500px;
+    min-height: 150px;
+    background: #0e0c0c;
+    color: #333;
+    padding: 20px;
+    margin: 20px 0;
+    outline: none;
+    border-radius: 5px;
+
+}
+
+
+/* DIVISOR DA HOME */
+.custom-shape-divider-bottom-1692911528 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1692911528 svg {
+    position: relative;
+    display: block;
+    width: calc(108% + 1.3px);
+    height: 158px;
+}
+
+.custom-shape-divider-bottom-1692911528 .shape-fill {
+    fill: #FAFAFA;
+}
+
+/* DIVISOR DO RODAPÉ */
+.custom-shape-divider-top-1694045992 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1694045992 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 131px;
+}
+
+.custom-shape-divider-top-1694045992 .shape-fill {
+    fill: #FAFAFA;
+}
+
+
+/* Botao que joga pra cima */
+
+.back-to-top {
+    display: inline-block;
+    right: 15px;
+    bottom: 15px;
+    text-align: center;
+    position: fixed;
+    transition: background-color .3s, opacity .5s, visibility.5s;
+    z-index: 1000;
+    background: #6E43B9;
+    width: 3vw;
+    height: 6vh;
+    border-radius: 4px;
+    
+}
+
+.back-to-top:hover {
+    background: #550e63;
+    color: #fff;
+}
+
+.back-to-top i {
+    font-size: 3vh;
+    color: #fff;
+    
+}

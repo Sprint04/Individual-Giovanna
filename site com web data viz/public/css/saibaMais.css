@@ -1,0 +1,878 @@
+@import url('https://fonts.cdnfonts.com/css/metrophobic');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #6E43B9;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #2A327A;
+}
+
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #FAFAFA;
+}
+
+
+
+/* NAV BAR */
+.navbar {
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 3px;
+    font-size: 20px;
+    display: flex;
+    background: #000000;
+    justify-content: space-between;
+    align-items: center;
+    color: #FAFAFA;
+    padding: 2% 1%;
+}
+
+/* área da lista da navbar */
+.navbar-items ul {
+    list-style: none;
+    margin-left: 28vw;
+    padding: 0;
+    display: flex;
+}
+
+/* lista da navbar */
+.navbar-items li {
+    margin: 0 20px;
+}
+.navbar-items a {
+    text-decoration: none;
+    color: #FAFAFA;
+}
+
+/*'animação' dos links, quando passar o mouse troca a cor em 0.5 segundos*/
+.navbar li a:hover {
+    color: #8800ff;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+
+
+/* INICIO HOME (SAIBA MAIS) */
+#homeMain {
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(0deg, rgb(160, 160, 160) 0%, rgb(0, 0, 0) 100%);
+    height: 70vh;
+    position: relative;
+    padding: 5vb;
+    margin-bottom: 5vh;
+    margin-left: 0vw;
+}
+
+/* área onde fica todos os textos da home (saiba mais) */
+.main-texto {
+    margin: 0;
+    position: relative;
+    left: 5vw;
+    top: 6vh;
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 0vw;
+}
+
+/* título: saiba mais */
+#TrackWare-titulo {
+    font-weight:500;
+    font-size: 80px;
+    margin-top: -5vw;
+    margin-left: 0vw;
+}
+
+/* texto: bem-vindo */
+#part1 {
+    margin-left: 0vw;
+    margin-top: 2vw;
+    margin-bottom: 0%;
+    font-weight: 700;
+    color: #fdfdfd;
+}
+
+/* texto: sobre a área de saiba mais*/
+#part2 {
+    margin-left: 0vw;
+    width: 38vw;
+    margin-top: 0vw;
+    text-align: justify;
+}
+
+/*'animação' dos links, quando passar o mouse troca a cor em 0.5 segundos*/
+#TrackWare-titulo:hover {
+    color: #c98aff;
+    transition: 0.5s;
+}
+
+/* sublinhado */
+.line-saiba-mais {
+    background-color: #c788ff;
+    height: 0.8vh;
+    width: 50vh;
+    position: relative;
+    left: 0vh;
+    bottom: 0vh;
+}
+
+/* botão da área da home (saiba mais) e animação do botão */
+.button-home {
+    background: #8800ff;
+    color: #ffffff;
+    border: #8800ff;
+    border-radius: 20px;
+    margin-right: 10px;
+    width: 300px;
+    height: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 23px;
+    margin-left: -6px;
+    text-decoration: none;
+}
+
+.button-home a{
+    color: white;
+}
+
+.button-home:hover {
+    color: #ffffff;
+    transition: 0.5s;
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.2);
+    background-color: #50008a;
+    transition-duration: 0.3s;
+}
+
+/* imagem home (saiba mais): gráficos e métricas*/
+.ilustracao-home {
+    position: relative;
+    top: -8vh;
+    right: -5vw;
+    z-index: 99;
+}
+
+#imagemHome {
+    width: 650px;
+    height:650px;
+    margin-top: 8%;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+
+
+
+/* SECTION: O QUE MONITORAMOS? */
+.section-sobre{
+    margin-top: 10vh;
+    height: 80vh;
+    margin-left: -6vh;
+}
+
+/* titulo */
+.h1 {
+    width: 75%;
+    font-size: 6vh;
+    display: flex;
+    position: relative;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    left: 28vh;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+    line-height: 5vh;
+    margin-top: 8vh;
+}
+
+/* sublinhado */
+.section-sobre .texto-sobre-nos .line {
+    height: 5px;
+    width: 73vh;
+    background-color: #8800ff;
+    position: relative;
+    bottom: 10vh;
+    left: 71vh;
+    top: -10vh;
+}
+
+/* texto 1 */
+.p1 {
+    width: 65%;
+    font-size: 3vh;
+    display: flex;
+    position: relative;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    left: 39vh;
+    bottom: 8vh;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+    line-height: 5vh;
+    margin-top: 5vh;
+}
+
+
+/* SECTION: PORQUE A ÁNALISE DE DADOS É IMPORTANTE?  */
+.section-analise{
+    margin-top: 20vh;
+    background-color: #000000;
+    height: 90vh;
+}
+
+/* área que engloba todo o texto de análise */
+.texto-analise{
+    height: 80vh;
+    margin-top: -10vh;
+}
+
+/* titulo */
+.analise-dados .texto-analise h1 {
+    width: 75%;
+    font-size: 6vh;
+    display: flex;
+    position: relative;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    left: 28vh;
+    bottom: 8vh;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    line-height: 5vh;
+    margin-top: 20vh;
+}
+
+/* sublinhado */
+.analise-dados .texto-analise .line {
+    height: 5px;
+    width: 143vh;
+    background-color: #8800ff;
+    position: relative;
+    bottom: 10vh;
+    left: 36vh;
+}
+
+/* texto */
+.analise-dados .texto-analise .p1 {
+    width: 75%;
+    font-size: 3vh;
+    display: flex;
+    position: relative;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    left: 28vh;
+    bottom: 8vh;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    line-height: 5vh;
+    margin-top: 5vh;
+}
+
+/* o retângulo interio ocupando toda a largura da página */
+.cards {
+    background-color: #444343;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+    height: 20vh;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    margin-top: -20vh;
+}
+
+/* cada retângulo dentro do retângulo maior */
+.card1-analise{
+    background-color: #4f0081;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 25%;
+    height: 20vh;
+    font-size: 4vh;
+    color: #ffffff;
+}
+
+.card2-analise{
+    background-color: #6700a6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 25%;
+    height: 20vh;
+    font-size: 4vh;
+    color: #ffffff;
+}
+
+.card3-analise{
+    background-color: #7c00c9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 25%;
+    height: 20vh;
+    font-size: 4vh;
+    color: #ffffff;
+}
+
+.card4-analise{
+    background-color: #9d00ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 25%;
+    height: 20vh;
+    font-size: 4vh;
+    color: #ffffff;
+}
+
+
+
+/* SECTION: PORQUE EMPRESAS DE LOGÍSTICA?*/
+.section-logistica{
+    margin-top: 10vh;
+}
+
+/* área que engloba a section */
+.porque-logistica{
+    background-color: #FAFAFA;
+    margin-top: 15vh;
+    height: 120vh;
+}
+
+/* título */
+.h1 {
+    width: 75%;
+    font-size: 6vh;
+    display: flex;
+    position: relative;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    left: 28vh;
+    bottom: 8vh;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+    line-height: 5vh;
+    margin-top: 18vh;
+}
+
+/* sublinhado */
+.section-logistica .texto-porque-logistica .line {
+    height: 5px;
+    width: 105vh;
+    background-color: #8800ff;
+    position: relative;
+    bottom: 10vh;
+    left: 55vh;
+}
+
+/* área do texto */
+.texto-porque-logistica{
+    height: 80vh;
+}
+
+/* texto */
+.texto-porque-logistica .p1 {
+    width: 34%;
+    font-size: 3vh;
+    display: flex;
+    position: relative;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    left: 99vh;
+    bottom: 8vh;
+    text-align: justify;
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+    line-height: 5vh;
+    margin-top: -50vh;
+}
+
+/* imagem: homem levando caixas */
+.ilustracao-logistica{
+    position: relative;
+    top: 18vh;
+    left: 3vw;
+    width: 30%;
+}
+
+.section-logistica .texto-porque-logistica img {
+    width: 60vh;
+    height: 60vh;
+    position: relative;
+    left: 31vh;
+    bottom: 16vh;
+}
+
+
+
+
+/* SECTION: FRASE DO QUE A TRACKWARE DESEJA OFERECER */
+.section-frase{
+    margin-top: 15vh;
+}
+
+/* área que engloba a section */
+.frase-trackware{
+    margin-top: 15vh;
+    background-color: #000000;
+    height: 40vh;
+}
+
+/* área que engloba a frase (altura) */
+.texto-frase{
+    height: 20vh;
+}
+
+/* frase */
+.frase-trackware .texto-frase .h1 {
+    width: 85%;
+    font-size: 6vh;
+    display: flex;
+    position: relative;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    left: 15vh;
+    bottom: 8vh;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    line-height: 10vh;
+    margin-top: 10vh;
+}
+
+
+
+ /* SECTION: INFORMAÇÕES RELEVANTES SOBRE NOSSOS SERVIÇOS */
+.servicos {
+    background-color: #FAFAFA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
+    height: 190vh;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 10%;
+}
+
+/* titulo */
+.servicos .texto-infos .h1 {
+    width: 100%;
+    font-size: 6vh;
+    display: flex;
+    position: relative;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    left: 85vh;
+    bottom: 8vh;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+    line-height: 5vh;
+    margin-top: -80vh;
+}
+
+/* sublinhado */
+.servicos .texto-infos .line {
+    height: 5px;
+    width: 88vh;
+    background-color: #8800ff;
+    position: relative;
+    bottom: 10vh;
+    left: 85vh;
+}
+
+/* área que engloba todas as caixas */
+.servicosDesc {
+    height: 40vh;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FAFAFA;
+    color: #000000;
+    position: relative;
+    left: -42vh;
+    margin-top:-200vh;
+    margin-bottom: -100vh;
+}
+
+/* área das caixas */
+.servicoBox {
+    background-color: #47006c;
+    height: 27vh;
+    width: 170vh;
+    display: flex;
+    justify-content: center;
+    text-align: start;
+    color: #ffffff;
+    box-shadow: 1px 10px 10px 5px rgba(0, 0, 0, 0.384);
+    border-radius: 0px 0px 0px 0px;
+}
+
+
+/* subtitulos em cada uma das caixas */
+.servicos .servicosDesc h2 {
+    font-size: xx-large;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    left: 5vh;
+}
+
+/* texto dentro das caixas */
+.texto {
+    padding: 2.0em;
+    display: flex;
+    text-align: justify;
+    font-size: x-large;
+    position: relative;
+    top: -12vh;
+    bottom: 20vh;
+    width: 93%;
+}
+
+
+
+
+/* RODAPÉ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap');
+
+
+
+:root {
+    --color-neutral-0: #0e0c0c;
+    --color-neutral-10: #171717;
+    --color-neutral-30: #a8a29e;
+    --color-neutral-40: #f5f5f5;
+
+}
+
+main {
+    height: 80vh;
+}
+
+footer {
+    width: 100%;
+    color: var(--color-neutral-40);
+    margin-bottom: -100vh;
+}
+
+#link {
+    text-decoration: none;
+}
+
+#rodape {
+    background-color: var(--color-neutral-10);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 8rem 5rem;
+    justify-content: space-around;
+    position: relative;
+    background: linear-gradient(0deg, rgb(0, 0, 0) 20%, rgb(48, 48, 48) 100%);
+}
+
+#footer_contacts h3 {
+    margin-bottom: 0.75rem;
+    font-size: xx-large;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}
+
+#footer_contacts h3 span {
+    font-weight: 750;
+}
+
+.footer-link  {
+
+    text-decoration: none;
+    color: var(--color-neutral-30);
+     
+}
+
+/*
+LINK CODIGO REDES
+https://github.com/bytesoftheweb/Reels/tree/main/Icons/02z
+*/
+
+.icons {
+	
+        display: flex;
+        width: 10vw;
+        justify-content: space-evenly;
+        position: relative;
+        top: 1rem;
+        
+    
+}
+
+.icon {
+	display: inline-flex;
+	width: 3rem;
+	height: 3rem;
+	text-decoration: none;
+	font-size: 1.4rem;
+	color: #fff;
+	border-radius: 50%;
+	outline: 2px solid #fff;
+	transition-property: outline-offset, outline-color, background-color;
+	transition-duration: 0.25s;
+}
+
+.icon:hover {
+	outline-offset: 4px;
+}
+
+.icon i {
+	margin: auto;
+}
+
+.icon:hover i {
+	animation: shake 0.25s;
+}
+
+.icon--instagram:hover {
+	background-image: radial-gradient(
+		circle at 30% 107%,
+		#fdf497 0%,
+		#fdf497 5%,
+		#fd5949 45%,
+		#d6249f 60%,
+		#285aeb 90%
+	);
+	outline-color: #a02d76;
+}
+
+.icon--linkedin:hover {
+	background-color: #0077b5;
+	outline-color: #0077b5;
+}
+
+.icon--whatsapp:hover {
+	background-color: #2ea44f;
+	outline-color: #2ea44f;
+}
+
+@keyframes shake{
+
+10% {
+
+    transform: rotate(15deg);
+
+}
+
+20% {
+
+    transform: rotate(-15deg);
+
+}
+
+30% {
+
+    transform: rotate(15deg);
+
+}
+
+40% {
+
+    transform: rotate(-15deg);
+
+}
+
+}
+
+#email {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+#email p {
+    color: var(--color-neutral-30);
+}
+
+#input_group {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-neutral-0);
+    border-radius: 4px;
+}
+
+#input_group input {
+    all: unset;
+    padding: 0.75rem;
+    width: 100%;
+}
+
+#input_group button {
+    background-color: #6E43B9;
+    border: none;
+    color: var(--color-neutral-40);
+    padding: 0px 1.25rem;
+    font-size: 1.125rem;
+    height: 100%;
+    border-radius: 0px 4px 4px 0px;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+#input_group button:hover {
+    opacity: 0.8;
+}
+
+#copyright {
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-neutral-0);
+    font-size: 0.9rem;
+    padding: 1.5rem;
+    font-weight: 100;
+}
+
+.footer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    list-style: none;
+}
+
+.footer-list-contato {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    list-style: none;
+}
+
+.footer-list .footer-link {
+    color: var(--color-neutral-30);
+    transition: all 0.4s;
+    text-decoration: none;
+}
+
+.footer-list .footer-link:hover {
+    color: #7f37c9;
+
+}
+
+.notes {
+
+    position: relative;
+    width: auto;
+    max-width: 500px;
+    min-height: 150px;
+    background: #0e0c0c;
+    color: #333;
+    padding: 20px;
+    margin: 20px 0;
+    outline: none;
+    border-radius: 5px;
+
+}
+
+/* DIVISOR DA HOME */
+.custom-shape-divider-bottom-1692911528 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1692911528 svg {
+    position: relative;
+    display: block;
+    width: calc(108% + 1.3px);
+    height: 158px;
+}
+
+.custom-shape-divider-bottom-1692911528 .shape-fill {
+    fill: #FAFAFA;
+}
+
+/* DIVISOR DO RODAPÉ */
+.custom-shape-divider-top-1694045992 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1694045992 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 131px;
+}
+
+.custom-shape-divider-top-1694045992 .shape-fill {
+    fill: #FAFAFA;
+}
+
+
+    /* BOTÃO PARA VOLTAR PARA CIMA */
+
+    .back-to-top {
+        position: fixed;
+        right: 1vh;
+        bottom: 1vh;
+        z-index: 999;
+        background: #6E43B9;
+        width: 3vw;
+        height: 6vh;
+        border-radius: 4px;
+        transition: all 0.4s;
+    }
+
+    .back-to-top:hover {
+        background: #550e63;
+        color: #fff;
+    }
+
+    .back-to-top i {
+        font-size: 28px;
+        color: #fff;
+    }

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard de Geolocalização</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Inclua os links para as bibliotecas Leaflet.js e Chart.js -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        
+        /* Estilos para o contêiner do mapa */
+        #map {
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dashboard de Geolocalização</h1>
+    
+    <!-- Crie um elemento HTML para o mapa -->
+    <div id="map"></div>
+
+    <!-- Crie um elemento HTML para o gráfico Chart.js -->
+    <canvas id="chart" width="400" height="200"></canvas>
+
+    <script>
+        //Define um array de objetos, que representam os computadores em suas localizações 
+        const computerData = [
+            { cidade: "São Paulo", estado: "São Paulo", pais: "BR", latitude: -23.5505, longitude: -46.6333 },
+            { cidade: "São Bernardo", estado: "São Paulo", pais: "BR", latitude: -23.6939, longitude: -46.6333 },
+            // Adicione mais dados conforme necessário
+        ];
+
+        // Configuração do mapa Leaflet
+        // Cria uma instância do mapa Leaflet no elemento HTML com o ID "map" e define a visualização inicial com base na primeira entrada de dados do computador.
+        const map = L.map('map').setView([computerData[0].latitude, computerData[0].longitude], 10);
+        //Configura a camada de mapeamento com um provedor de mapas baseado em OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Adicione marcadores ao mapa, o computerData for each percorre os dados do computador e cria um marcador para cada entrada.
+        computerData.forEach(computer => {
+            //cria um marcador
+             L.marker([computer.latitude, computer.longitude])
+               //adiciona no mapa 
+                .addTo(map)
+                //Vincula uma janela pop-up ao marcador exibindo a cidade, estado e país do computador.
+                .bindPopup(`${computer.cidade}, ${computer.estado}, ${computer.pais}`)
+                // Abra uma janela pop-up imediatamente após a criação do marcador.
+                .openPopup();
+        });
+
+        // Configuração do gráfico Chart.js 
+        const chartCanvas = document.getElementById('chart').getContext('2d');
+        const chartConfig = {
+            type: 'bar',
+            data: {
+                labels: computerData.map(computer => `${computer.cidade}, ${computer.estado}, ${computer.pais}`),
+                datasets: [{
+                    label: 'Computadores',
+                    data: computerData.map(computer => 1), // Pode ajustar os valores conforme necessário
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                }],
+            },
+        };
+        const chart = new Chart(chartCanvas, chartConfig);
+    </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="imagex/png" href="../assets/logo-icon.png">
+    <link rel="stylesheet" href="../css/dashboards.css">
+    <link rel="stylesheet" href="../css/historico.css">
+    <title>Trackware - Historico</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<html>
+
+<body onload="listarHistorico()">
+    <div class="container_pagina">
+        <div class="menu_dashboard">
+            <div class="container_logo_menu_dashboard">
+                <div class="logo_menu_dashboard">
+                    <img src="../assets/logo-icon.png" alt="logo_menu">
+                </div>
+            </div>
+            <div class="opcoes_menu_dashboard">
+                <button onclick="btnDashboard()">Dashboards</button>
+                <button>Usuário</button>
+                <button onclick="btnFuncionarios()">Funcionários</button>
+                <button onclick="btnPlanos()">Planos</button>
+                <button>Monitoramento</button>
+                <button>Alertas</button>
+                <button onclick="btnChamado()">Chamados</button>
+                <button onclick="btnHistorico()"  class="button_selecionado">Históricos</button>
+            </div>
+        </div>
+        <div class="tela_dashboard">
+            <div class="container_mensagem_botao">
+                <div class="container_mensagem_usuario">
+                    <div class="img_usuario">
+                        <img src="../assets/perfil.png" alt="">
+                    </div>
+                    <div class="mensagem_usuario">
+                        Nome: <span id="usuarioNome"></span>
+                        <br>
+                        Empresa: <span id="empresaNome"></span>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="cards">
+            <div class="cardLogs">
+                <div class="box"></div>
+                <h1 class="funcionario_titulo">Histórico de entrada
+                </h1>
+                <div class="container_logs">
+                    <span class="historico_lista" id="historico_lista"><br></span>
+                </div>
+            </div>
+
+        </div>
+
+
+</html>
+<script>
+    function btnPlanos() {
+        window.location.href = "../planos.html"
+    }
+
+    function btnChamado() {
+        window.location.href = "https://track-ware-help.atlassian.net/servicedesk/customer/portals"
+    }
+    function btnHistorico() {
+        window.location.href = "historico.html"
+    }
+
+    function btnFuncionarios(){
+        window.location.href = "funcionario.html"
+    }
+
+    function btnDashboard(){
+        window.location.href = "dashboard.html"
+    }
+</script>
+<script>
+
+    usuarioNome.innerHTML += sessionStorage.NOME_USUARIO
+    empresaNome.innerHTML += sessionStorage.NOME_EMPRESA
+
+    function listarHistorico() {
+        var idVar = sessionStorage.ID_USUARIO
+        fetch(`/historico/historico/${idVar}`
+        ).then(function (resposta) {
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    for (i = 0; i < resposta.length; i++) {
+                        var hist = resposta[i].texto;
+                        historico_lista.innerHTML += `<p>${i + 1} - ${hist}</p><br>`
+                    }
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o listar!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+</script>

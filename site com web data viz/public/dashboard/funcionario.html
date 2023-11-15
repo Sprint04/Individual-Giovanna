@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="imagex/png" href="../assets/logo-icon.png">
+    <link rel="stylesheet" href="../css/dashboards.css">
+    <link rel="stylesheet" href="../css/funcionario.css">
+    <title>Trackware - Funcionarios</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<html>
+
+<body onload="listarFuncionario(); listarCargo()">
+    <div class="container_pagina">
+        <div class="menu_dashboard">
+            <div class="container_logo_menu_dashboard">
+                <div class="logo_menu_dashboard">
+                    <img src="../assets/logo-icon.png" alt="logo_menu">
+                </div>
+            </div>
+            <div class="opcoes_menu_dashboard">
+                <button onclick="btnDashboard()">Dashboards</button>
+                <button>Usuário</button>
+                <button onclick="btnFuncionarios()" class="button_selecionado">Funcionários</button>
+                <button onclick="btnPlanos()">Planos</button>
+                <button>Monitoramento</button>
+                <button>Alertas</button>
+                <button onclick="btnChamado()">Chamados</button>
+                <button onclick="btnHistorico()">Históricos</button>
+            </div>
+        </div>
+        <div class="tela_dashboard">
+            <div class="container_mensagem_botao">
+                <div class="container_mensagem_usuario">
+                    <div class="img_usuario">
+                        <img src="../assets/perfil.png" alt="">
+                    </div>
+                    <div class="mensagem_usuario">
+                        Nome: <span id="usuarioNome"></span>
+                        <br>
+                        Empresa: <span id="empresaNome"></span>
+                    </div>
+                </div>
+
+                <!-- <div class="container_botao_maquinas">
+                    <div class="botao_maquina">
+                        <select name="" id="">
+                            <option value="">Máquina 1</option>
+                        </select>
+                    </div>
+                </div> -->
+                
+            </div>
+
+            <!-- <div class="nome_empresa">
+                <span>Empresa <span id="nome_empresa">Cliente</span></span>
+            </div> -->
+            <div class="cards">
+
+            <div class="cardFuncionario">
+                <div class="box"></div>
+                <h1 class="funcionario_titulo">Funcionários Cadastrados: <span id="KpiFuncionariosCadastrados"></span>
+                </h1>
+                <div class="container_funcionarios">
+                    <li id="funcionario_lista"></li>
+                </div>
+            </div>
+            <div  id="funcionario" class="cardFuncionarioCadastrar">
+                <div class="box"></div>
+                <h1 class="funcionario_titulo">Cadastrar Funcionário</h1>
+                
+                <div class="container_funcionariosCadastrar">
+                    <button class="botao" onclick="trocarCard()">Cargos</button>
+                    <div class="removeId"><h1 class="funcionario_titulo">Remover Funcionário</h1>
+                        
+                        <div class="input-group">
+                            <input type="text" id="removerId" class="input-group__input" required />
+                            <label for="cnpj_input" class="input-group__label">Insira o id:</label>
+                          </div>
+                          
+                          <button onclick="removerFuncionario()" class="botao">Remover</button></div>
+
+                    <h2 class="funcionario_titulo">Cadastrar Funcionário</h2>
+
+                        <div class="input-group">
+                            <input type="text" id="nome_input" class="input-group__input" required />
+                            <label for="cnpj_input" class="input-group__label">Nome:</label>
+                          </div>
+
+                          <div class="input-group">
+                              <input type="text" id="sobrenome_input" class="input-group__input" required />
+                              <label for="cnpj_input" class="input-group__label">Sobrenome:</label>
+                          </div>
+
+                          <div class="input-group">
+                              <input type="text" id="cpf_input" class="input-group__input" required />
+                              <label for="cnpj_input" class="input-group__label">CPF:</label>
+                          </div>
+
+                          <div class="input-group">
+                              <input type="text" id="email_input" class="input-group__input" required />
+                              <label for="cnpj_input" class="input-group__label">Email:</label>
+                          </div>
+
+                          <div class="input-group">
+                              <input type="text" id="senha_input" class="input-group__input" required />
+                              <label for="cnpj_input" class="input-group__label">Senha:</label>
+                          </div>     
+
+                        <select id="cargo">
+                            <option value="0">Cargo</option>
+                        </select>
+
+                        <button onclick="cadastrarUsuario()" class="botao">Adicionar</button>
+
+                </div>
+            </div>
+            <div id="cargoDiv" class="cardFuncionarioCadastrar">
+                <div class="box"></div>
+                <h1 class="funcionario_titulo">Cadastrar Cargo</h1>
+                
+                <div class="container_funcionariosCadastrar">
+                    <button class="botao" onclick="trocarCard()">Funcionarios</button>
+
+                    <h2 class="funcionario_titulo">Cadastrar Cargo</h2>
+                    <div class="input-group">
+                        <input type="text" id="nomeCargo_input" class="input-group__input" required />
+                        <label for="cnpj_input" class="input-group__label">Nome:</label>
+                      </div>
+                      <div class="input-group">
+                        Permissão de adicionar funcionario:
+                        <select id="permissoes1">
+                            <option value="0">Não</option>
+                            <option value="1">Sim</option>
+                        </select>
+                      </div>
+                      <div class="input-group">
+                        Permissão de ver historicos:
+                        <select id="permissoes2">
+                            <option value="0">Não</option>
+                            <option value="1">Sim</option>
+                        </select>
+                      </div>
+                      <div class="input-group">
+                        Permissão de adm:
+                        <select id="permissoes2">
+                            <option value="0">Não</option>
+                            <option value="1">Sim</option>
+                        </select>
+                      </div>
+
+                        <button onclick="cadastrarargo()" class="botao">Criar cargo</button>
+                </div>
+            </div>
+        </div>
+
+            <!-- <div class="crud">
+                <span class="crudInput"><span class="titulo">Remover Funcionarios: </span>Insira o id: <input
+                        placeholder="Id" id="removerId"> <button onclick="removerFuncionario()">Remover</button></span>
+                <div class="adicionarFunci">
+                    <h2>Adicionar Funcionarios</h2>
+                    <div class="inputs">
+                        <input placeholder="nome" id="nome_input">
+                        <input placeholder="sobrenome" id="sobrenome_input">
+                        <input placeholder="CPF" id="cpf_input">
+                        <input placeholder="Email" id="email_input">
+                        <input placeholder="Senha" id="senha_input">
+                        <select id="cargo">
+                            <option value="0">Cargo</option>
+                        </select>
+                    </div>
+
+                </div> -->
+
+            </div>
+        </div>
+
+</html>
+<script>
+    var card = 0
+    var funcionario = document.getElementById('funcionario');
+    var divCargo = document.getElementById('cargoDiv');
+
+    divCargo.style.display = "none"
+
+    function trocarCard(){
+        if(card == 0){
+            card += 1
+            funcionario.style.display = "none"
+            divCargo.style.display = "block"
+        } else{
+            card = 0
+            funcionario.style.display = "block"
+            divCargo.style.display = "none"
+        }
+    }
+</script>
+<script>
+    function btnPlanos() {
+        window.location.href = "../planos.html"
+    }
+
+    function btnChamado() {
+        window.location.href = "https://track-ware-help.atlassian.net/servicedesk/customer/portals"
+    }
+    function btnHistorico() {
+        window.location.href = "historico.html"
+    }
+
+    function btnFuncionarios(){
+        window.location.href = "funcionario.html"
+    }
+
+    function btnDashboard(){
+        window.location.href = "dashboard.html"
+    }
+</script>
+<script>
+
+    usuarioNome.innerHTML += sessionStorage.NOME_USUARIO
+    empresaNome.innerHTML += sessionStorage.NOME_EMPRESA
+
+    function listarFuncionario() {
+        var idVar = sessionStorage.ID_USUARIO
+        fetch(`/historico/funcionario/${idVar}`
+        ).then(function (resposta) {
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    funcionario_lista.innerHTML = `<br><p class="texto_meio"><b>idUsuario - nome - Cargo</b></p><br><br>`
+                    KpiFuncionariosCadastrados.innerHTML = resposta[0].qtdFuncionario
+
+                    for (i = 0; i < resposta.length; i++) {
+                        var resp = resposta[i];
+                        funcionario_lista.innerHTML += `<p>${resp.idUsuario} - ${resp.nome} - ${resp.cargo}</p><br>`
+                    }
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o listar!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+    function listarCargo() {
+        var idVar = sessionStorage.ID_USUARIO
+        fetch(`/historico/cargo/${idVar}`
+        ).then(function (resposta) {
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+
+                    for (i = 0; i < resposta.length; i++) {
+                        var resp = resposta[i];
+                        cargo.innerHTML += `<option value="${resp.id}">${resp.nome}</option>`
+                    }
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o listar!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function cadastrarUsuario() {
+        var nome = nome_input.value
+        var sobrenome = sobrenome_input.value
+        var cpf = cpf_input.value
+        var email = email_input.value
+        var senha = senha_input.value
+        var fkEmpresa = sessionStorage.getItem('idEmpresa')
+        var cargo = document.getElementById("cargo").value
+        if (cargo == 0) {
+            cargo = undefined
+        }
+
+        fetch("/usuarios/cadastrarUsuario", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                nomeServer: nome,
+                sobrenomeServer: sobrenome,
+                cpfServer: cpf,
+                emailServer: email,
+                senhaServer: senha,
+                fkEmpresaServer: fkEmpresa,
+                cargoServer: cargo,
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN do Cadastrar Usuario!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    listarFuncionario()
+                });
+            } else {
+                console.log("Houve um erro ao tentar cadastrar o usuario!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                })
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+    }
+
+    function removerFuncionario() {
+        var idVar = removerId.value
+        var id2Var = sessionStorage.ID_USUARIO
+        fetch(`/historico/removerFuncionario/${idVar}/${id2Var}`
+        ).then(function (resposta) {
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    listarFuncionario()
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o remover!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function cadastrarCargo() {
+        var nome = nomeCargo_input.value
+        var hist = document.getElementById("permissoes2").value
+        var add = document.getElementById("permissoes1").value
+        var adm = document.getElementById("permissoes3").value
+        var fkEmpresa = sessionStorage.getItem('idEmpresa')
+
+        fetch("/usuarios/cadastrarCargo", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                nomeServer: nome,
+                histServer: hist,
+                addServer: add,
+                admServer: adm,
+                fkEmpresaServer: fkEmpresa
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN do Cadastrar Usuario!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    listarFuncionario()
+                });
+            } else {
+                console.log("Houve um erro ao tentar cadastrar o usuario!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                })
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+    }
+</script>

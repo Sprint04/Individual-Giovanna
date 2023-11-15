@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+    <title>TrackWare - Confirma Compra</title>
+  
+    <link rel="icon" href="assets/icon/favicon.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="shortcut icon" href="assets/logo-icon.png" type="image/x-icon">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+    <link rel="stylesheet" href="css/confirmaCompra.css" />
+
+</head>
+<body>
+    <!-- HOME INICIAL -->
+    <div class="home">
+
+    <!-- BARRA DE PROGRESSÃO DA COMPRA -->
+        <div class="container-barra">
+            <ul class="barra">
+              <li>Planos</li>
+              <li>Forma de pagamento</li>
+              <li class="active">Confirma Compra</li>
+            </ul>
+          </div>
+
+          <!-- FORMULARIO DO RESUMO -->
+          <div class="container-form">
+
+            <div class="box"></div>
+            <p class="title">
+                Resumo da compra
+            </p>
+        <div class="line"></div>
+
+        <!-- DADOS DO USUARIO -->
+            <div class="container-dados">
+
+                <div class="dado">Plano selecionado: <p id="plano_cartao"></p></div>
+
+                <div class="dado">Nome do cartão: <p id="nome_cartao"></p></div>
+
+                <div class="dado">Número do cartão: <p id="numero_cartao"></p></div>
+
+                <div class="dado">Valor: <p style="color:#38da33;" id="valor_plano_cartao">R$</p></div>
+
+            </div>
+
+              <div class="button-container">
+                <button type="button" id="btn-Comprar" onclick="btnCompra()">
+                    Confirmar Compra
+                </button>
+                </div>
+
+                <div class="button-container-cancel">
+                    <button type="button" onclick="btnCancela()">
+                        Cancelar Compra
+                    </button>
+                    </div>
+                </div>
+
+</body>
+</html>
+
+<script>
+
+        var idEmpresa = sessionStorage.getItem("ID_EMPRESA");
+        var idPlano = sessionStorage.getItem("idPlano");
+        var idCartao = sessionStorage.getItem("idCartao");
+
+        var nomeCartao = sessionStorage.getItem("nomeCartao");
+        var numeroCartao = sessionStorage.getItem("numeroCartao");
+        var dtExpircao= sessionStorage.getItem("dtExpircao");
+        var codSeguranca = sessionStorage.getItem("codSeguranca");
+        var bandCartao = sessionStorage.getItem("bandCartao");
+        var tipoCartao = sessionStorage.getItem("tipoCartao");
+
+        nome_cartao.innerHTML = nomeCartao;
+        numero_cartao.innerHTML = numeroCartao;
+        plano_cartao.innerHTML = sessionStorage.nomePlano;
+        valor_plano_cartao.innerHTML += sessionStorage.valorPlano;
+
+  function btnCompra() {
+
+    fetch("/cartao/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        nomeServer: nomeCartao,
+        numeroServer: numeroCartao,
+        data_expiracaoServer: dtExpircao,
+        codigo_segurancaServer: codSeguranca,
+        fkTipoCartaoServer: bandCartao,
+        fkBandeiraCartaoServer: tipoCartao
+
+      })
+    }).then(function (resposta) {
+        console.log("Efetuando cadastro do cartão")
+        if(resposta.ok){
+            console.log(resposta);
+
+            resposta.json().then(json => {
+                console.log(json)
+                console.log(JSON.stringify(json));
+
+            });
+        } else {
+            console.log("Houve um erro ao cadastrar o cartão")
+            resposta.text().then(texto => {
+            })
+        }
+      })
+      .catch(function (erro) {
+        console.log(erro);
+      })
+    setTimeout(recuperarIDCartao, 250)
+    return false;
+
+  function recuperarIDCartao() {
+
+    fetch("/cartao/recuperarIDCartao", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        numeroServer: numeroCartao
+
+      })
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN do Autenticar Recuperar()!")
+
+      if (resposta.ok) {
+        console.log(resposta);
+
+        resposta.json().then(json => {
+          console.log(json);
+          console.log(JSON.stringify(json));
+
+          sessionStorage.setItem('idCartao', JSON.stringify(json.idCartao));
+          updateEmpresa()
+
+        });
+      } else {
+        console.log("Houve um erro ao tentar cadastrar a empresa!");
+
+        resposta.text().then(texto => {
+          console.error(texto);
+        })
+      }
+    }).catch(function (erro) {
+      console.log(erro);
+    })
+
+    return false;
+  }
+
+  function updateEmpresa() {
+
+    fetch(`/cartao/updateCartao/${idEmpresa}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        fkPlanoServer: idPlano,
+        fkCartaoServer: idCartao
+      })
+    }).then(function (resposta) {
+        console.log("Efetuando update empresa")
+        if(resposta.ok){
+            console.log(resposta);
+
+            resposta.json().then(json => {
+                console.log(json)
+                console.log(JSON.stringify(json));
+
+            });
+        } else {
+            console.log("Houve um erro ao update o empresa")
+            resposta.text().then(texto => {
+            })
+        }
+      })
+      .catch(function (erro) {
+        console.log(erro);
+      })
+      
+      alert("Compra Concluida")
+      window.location.href = "./dashboard/dashboard.html"
+    return false;
+
+  }
+
+  }
+
+  function btnCancela() {
+    alert("Compra Cancelada")
+    window.location.href = "./dashboard/dashboard.html"
+  }
+
+</script>
