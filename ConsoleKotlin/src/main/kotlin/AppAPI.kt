@@ -55,23 +55,11 @@ fun sistema(bd:Repositorio, looca: Looca, ip:String){
             }
             3 -> {
                 if (sistema.login) {
-
                     bd.acessoLog(sistema,pc)
 
-                    var fks: Int
-                    var dados: Double
                     println("\n\rEstamos monitorando sua máquina.")
 
-                    // val (arquivo1, arquivo2) = ScriptPython.criarPython(aMonitorar.python(), pc.idDispositivo,
                     CodigoPython.executarPython(pc.idDispositivo)
-                    //val arquivo1 = ScriptGeolocalizacaoPython.criarPython(pc.idDispositivo)
-                    //ScriptPython.executarScript(arquivo1,arquivo2)
-                    //ScriptGeolocalizacaoPython.executarScript(arquivo1)
-                    //Runtime.getRuntime().addShutdownHook(Thread {
-                    //    println("O monitoramento foi finalizado")
-                    //   // ScriptPython.pararScript()
-                    //    ScriptGeolocalizacaoPython.pararScript()
-                    //})
 
                     capturarDadosDeCPU()
 

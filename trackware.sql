@@ -388,10 +388,12 @@ CREATE TABLE dados_cpu (
     FOREIGN KEY (fkDispositivo) REFERENCES dispositivo(idDispositivo)
 );
 
-alter table dados_cpu modify column porcentagemUsoCPU varchar(50);
+DELETE FROM dados_cpu WHERE idDadosCPU > 0;
+
+alter table dados_cpu modify column dataHoraCaptura datetime;
 
 desc dados_cpu;
-
+desc geolocalizacao;
 select* from geolocalizacao;
 select * from dados_cpu;
 
