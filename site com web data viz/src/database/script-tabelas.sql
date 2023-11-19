@@ -380,10 +380,10 @@ create table ocorrencias(
 );
 
 CREATE TABLE dados_cpu (
-idDadosCPU INT PRIMARY KEY AUTO_INCREMENT,
-nomeCPU VARCHAR(200),
-porcentagemUsoCPU float,
-dataHoraCaptura varchar(100),
-fkDispositivo INT,
-FOREIGN KEY (fkDispositivo) REFERENCES dispositivo(idDispositivo)
+    idDadosCPU INT PRIMARY KEY AUTO_INCREMENT,
+    nomeCPU VARCHAR(200),
+    porcentagemUsoCPU DECIMAL(5, 2),
+    dataHoraCaptura DATETIME,
+    fkDispositivo INT,
+    FOREIGN KEY (fkDispositivo) REFERENCES dispositivo(idDispositivo)
 );

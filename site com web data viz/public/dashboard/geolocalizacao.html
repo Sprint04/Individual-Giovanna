@@ -39,7 +39,7 @@
                         <img src="../assets/perfil.png" alt="">
                     </div>
                     <div class="mensagem_usuario">
-                        Bem-vindo(a) GIOVANNA <span id="usuarioNome"></span>!
+                        Bem-vindo(a) <span id="usuarioNome"></span>!
                         <br>
                         Empresa: <span id="empresaNome"></span>
                     </div>
@@ -421,14 +421,14 @@
             for (i = 0; i < resposta.length; i++) {
                 var registro = resposta[i];
                 // labels.push(registro.Novo_Testamento);
-                labels.push(registro.dtHora);
-                data.datasets[0].data.push(registro.dadoCapturado); // dadoCapturado é o nome da coluna do mySQL
+                labels.push(registro.dataHoraCaptura);
+                data.datasets[0].data.push(registro.porcentagemUsoCPU); // dadoCapturado é o nome da coluna do mySQL
                 // dados.datasets[0].data.push(registro.Novo_Testamento);
                 // dados.datasets[1].data.push(registro.temperatura);
             }
 
             var dadoCapturadoCPU = resposta[resposta.length - 1];
-            dadoCPU = dadoCapturadoCPU.dadoCapturado;
+            dadoCPU = dadoCapturadoCPU.porcentagemUsoCPU;
             dado_CPU.innerHTML = `${dadoCPU}%`
             
 
@@ -473,7 +473,7 @@
                     label: 'RAM usage',
                     data: [],
                     backgroundColor: ['rgb(120, 20, 20)', 'rgb(150, 20, 10)'],
-                    borderColor: 'red',
+                    borderColor: 'purple',
                     borderwidth: 1
                 }]
             };
@@ -544,7 +544,7 @@
                     label: 'DISCO usage',
                     data: [],
                     backgroundColor: ['rgb(0, 90, 40)', 'rgb(0, 99, 90)'],
-                    borderColor: 'green',
+                    borderColor: 'purple',
                     borderwidth: 1
                 }]
             };
