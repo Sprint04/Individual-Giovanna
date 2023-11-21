@@ -16,6 +16,7 @@ var medidasRouter = require("./src/routes/medidas");
 var aquariosRouter = require("./src/routes/aquarios");
 var empresasRouter = require("./src/routes/empresas");
 var dashboardRouter = require("./src/routes/dashboard");
+var geolocalizacaoRouter = require("./src/routes/geolocalizacao");
 var cartaoRouter = require("./src/routes/cartao");
 var historicoRouter = require("./src/routes/historico");
 
@@ -33,6 +34,7 @@ app.use("/medidas", medidasRouter);
 app.use("/aquarios", aquariosRouter);
 app.use("/empresas", empresasRouter);
 app.use("/dashboard", dashboardRouter);
+app.use("/geolocalizacao", geolocalizacaoRouter);
 app.use("/cartao", cartaoRouter);
 app.use("/historico", historicoRouter);
 

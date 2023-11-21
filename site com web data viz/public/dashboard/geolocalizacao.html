@@ -139,6 +139,7 @@
 
    sessionStorage.NOME_EMPRESA = "Trackware"
    sessionStorage.NOME_USUARIO = "Cesar"
+    var dadoGEO = 0;
     var dadoCPU = 0;
     var dadoRAM = 0;
     var dadoDISCO = 0;
@@ -299,7 +300,7 @@
         obterDadosGraficoGeolocalizacao()
 
         function obterDadosGraficoGeolocalizacao() {
-            fetch(`/dashboard/obterDadosGraficoGeolocalizacao`, { cache: 'no-store' }).then(function (response) {
+            fetch(`/geolocalizacao/obterDadosGraficoGeolocalizacao`, { cache: 'no-store' }).then(function (response) {
                 if (response.ok) {
                     response.json().then(function (resposta) {
                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
@@ -325,22 +326,22 @@
             let data = {
                 labels: labels,
                 datasets: [{
-                    label: 'CPU usage',
+                    label: 'Localização',
                     data: [],
                     backgroundColor: ['rgb(0, 99, 140)', 'rgb(0, 99, 90)'],
-                    borderColor: 'blue',
+                    borderColor: 'Purple',
                     borderwidth: 1
                 }]
             };
 
             const config = {
-                type: 'line',
+                type: 'bar',
                 data: data,
             };
 
             console.log('iniciando plotagem do gráfico...');
-            const Grafico_Cpu = new Chart(
-                document.getElementById('Grafico_Cpu'),
+            const Grafico_GEO = new Chart(
+                document.getElementById('Grafico_GEO'),
                 config
             );
 
@@ -348,15 +349,15 @@
             for (i = 0; i < resposta.length; i++) {
                 var registro = resposta[i];
                 // labels.push(registro.Novo_Testamento);
-                labels.push(registro.dtHora);
-                data.datasets[0].data.push(registro.dadoCapturado); // dadoCapturado é o nome da coluna do mySQL
+                labels.push(registro.data_atual);
+                data.datasets[0].data.push(registro.endereco); // dadoCapturado é o nome da coluna do mySQL
                 // dados.datasets[0].data.push(registro.Novo_Testamento);
                 // dados.datasets[1].data.push(registro.temperatura);
             }
 
-            var dadoCapturadoCPU = resposta[resposta.length - 1];
-            dadoCPU = dadoCapturadoCPU.dadoCapturado;
-            dado_CPU.innerHTML = `${dadoCPU}%`
+            var dadoCapturadoGEO = resposta[resposta.length - 1];
+            dadoGEO = dadoCapturadoGEO.endereco;
+            dado_GEO.innerHTML = `${dadoGEO}`
             
 
             console.log('----------------------------------------------')
@@ -372,7 +373,7 @@
         obterDadosGraficoCPU()
 
         function obterDadosGraficoCPU() {
-            fetch(`/dashboard/obterDadosGraficoCPU`, { cache: 'no-store' }).then(function (response) {
+            fetch(`/geolocalizacao/obterDadosGraficoCPU`, { cache: 'no-store' }).then(function (response) {
                 if (response.ok) {
                     response.json().then(function (resposta) {
                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
@@ -401,7 +402,7 @@
                     label: 'CPU usage',
                     data: [],
                     backgroundColor: ['rgb(0, 99, 140)', 'rgb(0, 99, 90)'],
-                    borderColor: 'blue',
+                    borderColor: 'purple',
                     borderwidth: 1
                 }]
             };
@@ -445,7 +446,7 @@
         obterDadosGraficoRAM()
 
         function obterDadosGraficoRAM() {
-            fetch(`/dashboard/obterDadosGraficoRAM`, { cache: 'no-store' }).then(function (response) {
+            fetch(`/geolocalizacao/obterDadosGraficoRAM`, { cache: 'no-store' }).then(function (response) {
                 if (response.ok) {
                     response.json().then(function (resposta) {
                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
@@ -516,7 +517,7 @@
         obterDadosGraficoDISCO()
 
         function obterDadosGraficoDISCO() {
-            fetch(`/dashboard/obterDadosGraficoDISCO`, { cache: 'no-store' }).then(function (response) {
+            fetch(`/geolocalizacao/obterDadosGraficoDISCO`, { cache: 'no-store' }).then(function (response) {
                 if (response.ok) {
                     response.json().then(function (resposta) {
                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);

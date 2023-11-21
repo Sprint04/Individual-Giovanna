@@ -337,6 +337,7 @@ CREATE TABLE monitoramento(
     fkDispositivo int,
     foreign key (fkDispositivo) references dispositivo(idDispositivo)
 );
+select* from monitoramento;
 
 CREATE TABLE alerta (
 	idAlerta INT PRIMARY KEY AUTO_INCREMENT,
@@ -378,11 +379,12 @@ create table ocorrencias(
     fkDispositivo INT,
     FOREIGN KEY (fkDispositivo) REFERENCES dispositivo(idDispositivo)
 );
+SELECT endereco, COUNT(fkDispositivo) AS quantidade_de_computadores FROM geolocalizacao GROUP BY endereco;
 
 CREATE TABLE dados_cpu (
     idDadosCPU INT PRIMARY KEY AUTO_INCREMENT,
     nomeCPU VARCHAR(200),
-    porcentagemUsoCPU DECIMAL(5, 2),
+    porcentagemUsoCPU FLOAT,
     dataHoraCaptura DATETIME,
     fkDispositivo INT,
     FOREIGN KEY (fkDispositivo) REFERENCES dispositivo(idDispositivo)
@@ -398,4 +400,9 @@ select* from geolocalizacao;
 select * from dados_cpu;
 
 use trackware;
+ SELECT FORMAT(porcentagemUsoCPU, 2) as porcentagemUsoCPU, DATE_FORMAT(dataHoraCaptura, '%d/%m/%Y às %HH') as dataHoraCaptura FROM dados_cpu;
 
+SELECT m.dadoCapturado, DATE_FORMAT(m.dtHora, '%d/%m/%Y às %HH') as dtHora FROM Monitoramento m
+JOIN componentes c ON m.fkComponente = c.idComponente
+JOIN dispositivo d ON c.fkDispositivo = d.idDispositivo
+WHERE c.fkTipoComponente = 2;

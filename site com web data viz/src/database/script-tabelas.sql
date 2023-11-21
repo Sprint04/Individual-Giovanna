@@ -382,7 +382,7 @@ create table ocorrencias(
 CREATE TABLE dados_cpu (
     idDadosCPU INT PRIMARY KEY AUTO_INCREMENT,
     nomeCPU VARCHAR(200),
-    porcentagemUsoCPU DECIMAL(5, 2),
+    porcentagemUsoCPU FLOAT,
     dataHoraCaptura DATETIME,
     fkDispositivo INT,
     FOREIGN KEY (fkDispositivo) REFERENCES dispositivo(idDispositivo)
