@@ -406,3 +406,29 @@ SELECT m.dadoCapturado, DATE_FORMAT(m.dtHora, '%d/%m/%Y às %HH') as dtHora FROM
 JOIN componentes c ON m.fkComponente = c.idComponente
 JOIN dispositivo d ON c.fkDispositivo = d.idDispositivo
 WHERE c.fkTipoComponente = 2;
+
+SELECT SUBSTRING_INDEX(endereco, ",", 1) as cidade FROM geolocalizacao;
+SELECT SUBSTRING_INDEX(endereco, ",", -1) as Pais FROM geolocalizacao;
+SELECT SUBSTRING_INDEX(endereco, ",", 2) as estado FROM geolocalizacao;
+
+SELECT 
+	SUBSTRING_INDEX(endereco, ",", 1) as cidade,
+	TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(endereco, ",", -2), ",", 1)) as estado,
+	SUBSTRING_INDEX(endereco, ",", -1) as Pais,
+	latitude,
+	longitude
+		FROM geolocalizacao 
+        WHERE fkDispositivo = 1 
+        LIMIT 1;
+
+SELECT 
+	SUBSTRING_INDEX(endereco, ",", 1) as cidade,
+	TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(endereco, ",", -2), ",", 1)) as estado,
+	SUBSTRING_INDEX(endereco, ",", -1) as Pais,
+	latitude,
+	longitude
+		FROM geolocalizacao 
+        WHERE fkDispositivo = 1 
+        LIMIT 1;
+
+SELECT DISTINCT endereco, SUBSTRING_INDEX (SUBSTRING_INDEX (endereco, ',', n.numero), '-', -1) AS bairro FROM cidade_bairro cb CROSS JOIN numeros n ORDER BY cb.cidade, n.numero;

@@ -3,7 +3,7 @@ var router = express.Router();
 
 var geolocalizacaoController = require("../controllers/geolocalizacaoController");
 
-router.get("/obterDadosGraficoGEO/", function (req, res) {
+router.get("/obterDadosGraficoGeolocalizacao/", function (req, res) {
     geolocalizacaoController.buscarUltimasMedidasGEO(req, res);
 })
 

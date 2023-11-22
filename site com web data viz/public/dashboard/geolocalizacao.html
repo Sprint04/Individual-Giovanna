@@ -7,10 +7,11 @@
     <link rel="shortcut icon" type="imagex/png" href="../assets/logo-icon.png">
     <link rel="stylesheet" href="../css/geolocalizacao.css">
     <title>Trackware - Geolocalização de ativos</title>
+
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body>
@@ -92,10 +93,9 @@
                         <div class="img_informacao">
                             <img id="minhaImagem" src="../assets/novidade.png">
                         </div>
-                    
                     </div>
-                    <canvas id="Grafico_geolocalizacao" style="display: none;">
-                    </canvas>
+                    <div id='map' style="display: block;width: 100%;height: 100vh;">
+                    </div>
                     <canvas id="Grafico_Cpu" style="display: none;">
                     </canvas>
                     <canvas id="Grafico_Ram" style="display: none;">
@@ -147,10 +147,15 @@
     usuarioNome.innerHTML += sessionStorage.NOME_USUARIO
     empresaNome.innerHTML += sessionStorage.NOME_EMPRESA
 
-    plotar_grafico_geolocalizacao()
-    plotar_grafico_cpu()
-    plotar_grafico_ram()
-    plotar_grafico_disco()
+    window.onload = graficos()
+
+    function graficos(){
+        obterDadosGraficoGeolocalizacao()
+        plotar_grafico_cpu()
+        plotar_grafico_ram()
+        plotar_grafico_disco()
+    };
+    
 
     var grafico_principal_ativado = 1;
     var grafico_geolocalizacao_ativado =0;
@@ -160,11 +165,11 @@
 
     function chamar_grafico_geolocalizacao() {
         if (grafico_geolocalizacao_ativado == 0) {
-            grafico_cpu_ativado = 0;
-            Grafico_Cpu.style.display = "block"
+            grafico_geolocalizacao_ativado = 0;
+            map.style.display = "block"
 
-            grafico_geolocalizacao_ativado = 1;
-            Grafico_geolocalizacao.style.display = "none"
+            grafico_cpu_ativado = 0;
+            Grafico_Cpu.style.display = "none"
 
             grafico_principal_ativado = 0;
             Grafico_Principal.style.display = "none"
@@ -180,7 +185,7 @@
             Grafico_Principal.style.display = "block flex"
 
             grafico_geolocalizacao_ativado = 0;
-            Grafico_geolocalizacao.style.display = "none"
+            map.style.display = "none"
 
             grafico_cpu_ativado = 0;
             Grafico_Cpu.style.display = "none"
@@ -199,7 +204,7 @@
             Grafico_Cpu.style.display = "block"
 
             grafico_geolocalizacao_ativado = 0;
-            Grafico_geolocalizacao.style.display = "none"
+            map.style.display = "none"
 
             grafico_principal_ativado = 0;
             Grafico_Principal.style.display = "none"
@@ -215,7 +220,7 @@
             Grafico_Principal.style.display = "block flex"
 
             grafico_geolocalizacao_ativado = 0;
-            Grafico_geolocalizacao.style.display = "none"
+            map.style.display = "none"
 
             grafico_cpu_ativado = 0;
             Grafico_Cpu.style.display = "none"
@@ -234,7 +239,7 @@
             Grafico_Cpu.style.display = "none"
 
             grafico_geolocalizacao_ativado = 0;
-            Grafico_geolocalizacao.style.display = "none"
+            map.style.display = "none"
 
             grafico_principal_ativado = 0;
             Grafico_Principal.style.display = "none"
@@ -249,7 +254,7 @@
             Grafico_Principal.style.display = "block flex"
 
             grafico_geolocalizacao_ativado = 0;
-            Grafico_geolocalizacao.style.display = "none"
+            map.style.display = "none"
 
             grafico_cpu_ativado = 0;
             Grafico_Cpu.style.display = "none"
@@ -268,7 +273,7 @@
             Grafico_Cpu.style.display = "none"
 
             grafico_geolocalizacao_ativado = 0;
-            Grafico_geolocalizacao.style.display = "none"
+            map.style.display = "none"
 
             grafico_principal_ativado = 0;
             Grafico_Principal.style.display = "none"
@@ -283,7 +288,7 @@
             Grafico_Principal.style.display = "block flex"
 
             grafico_geolocalizacao_ativado = 0;
-            Grafico_geolocalizacao.style.display = "none"
+            map.style.display = "none"
 
             grafico_cpu_ativado = 0;
             Grafico_Cpu.style.display = "none"
@@ -295,78 +300,48 @@
             Grafico_Disco.style.display = "none"
         }
     }
-    function plotar_grafico_geolocalizacao() {
-        console.log("oi césar")
-        obterDadosGraficoGeolocalizacao()
 
-        function obterDadosGraficoGeolocalizacao() {
+    function obterDadosGraficoGeolocalizacao() {
             fetch(`/geolocalizacao/obterDadosGraficoGeolocalizacao`, { cache: 'no-store' }).then(function (response) {
                 if (response.ok) {
                     response.json().then(function (resposta) {
                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                        resposta.reverse();
-                        // sessionStorage.DADO_GEO = json.dadoCapturado;
-                        // console.log(sessionStorage.DADO_GEO)
-                        plotarGrafico_Geolocalizacao(resposta);
+                        
+        const computerData = [];
+
+        for(var i = 0;i< resposta.length; i++){
+            computerData[i] = resposta[i];
+        }
+
+        // Configuração do mapa Leaflet
+        // Cria uma instância do mapa Leaflet no elemento HTML com o ID "map" e define a visualização inicial com base na primeira entrada de dados do computador.
+        const map = L.map('map').setView([computerData[0].latitude, computerData[0].longitude], 10);
+        //Configura a camada de mapeamento com um provedor de mapas baseado em OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Adicione marcadores ao mapa, o computerData for each percorre os dados do computador e cria um marcador para cada entrada.
+        computerData.forEach(computer => {
+            //cria um marcador
+             L.marker([computer.latitude, computer.longitude])
+               //adiciona no mapa 
+                .addTo(map)
+                //Vincula uma janela pop-up ao marcador exibindo a cidade, estado e país do computador.
+                .bindPopup(`${computer.cidade}, ${computer.estado}, ${computer.Pais}`)
+                // Abra uma janela pop-up imediatamente após a criação do marcador.
+                .openPopup();
+        });
+
                     });
                 } else {
                     console.error('Nenhum dado encontrado ou erro na API');
                 }
             })
-                .catch(function (error) {
-                    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-                });
+                //.catch(function (error) {
+                //    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+                //});
         }
-
-        function plotarGrafico_Geolocalizacao(resposta) {
-            // Criando estrutura para plotar gráfico - labels
-            let labels = [];
-            // 
-            // Criando estrutura para plotar gráfico - dados
-            let data = {
-                labels: labels,
-                datasets: [{
-                    label: 'Localização',
-                    data: [],
-                    backgroundColor: ['rgb(0, 99, 140)', 'rgb(0, 99, 90)'],
-                    borderColor: 'Purple',
-                    borderwidth: 1
-                }]
-            };
-
-            const config = {
-                type: 'bar',
-                data: data,
-            };
-
-            console.log('iniciando plotagem do gráfico...');
-            const Grafico_GEO = new Chart(
-                document.getElementById('Grafico_GEO'),
-                config
-            );
-
-            // Inserindo valores recebidos em estrutura para plotar o gráfico
-            for (i = 0; i < resposta.length; i++) {
-                var registro = resposta[i];
-                // labels.push(registro.Novo_Testamento);
-                labels.push(registro.data_atual);
-                data.datasets[0].data.push(registro.endereco); // dadoCapturado é o nome da coluna do mySQL
-                // dados.datasets[0].data.push(registro.Novo_Testamento);
-                // dados.datasets[1].data.push(registro.temperatura);
-            }
-
-            var dadoCapturadoGEO = resposta[resposta.length - 1];
-            dadoGEO = dadoCapturadoGEO.endereco;
-            dado_GEO.innerHTML = `${dadoGEO}`
-            
-
-            console.log('----------------------------------------------')
-            console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-            console.log(resposta)
-        }
-
-        // setInterval(plotarGrafico, 3000);
-    }
 
     function plotar_grafico_cpu() {
         console.log("oi césar")
