@@ -162,7 +162,7 @@
     window.onload = graficos()
 
     function graficos(){
-        //plotar_grafico_quantidadeComputadores()
+        plotar_grafico_quantidadeComputadores()
         plotar_grafico_cpu()
         plotar_grafico_ram()
         plotar_grafico_disco()
@@ -220,14 +220,15 @@
 
     function chamar_grafico_quantidadeComputadores() {
         if (grafico_geolocalizacao_ativado == 0) {
+
+            grafico_quantidade_ativado = 1;
+            Grafico_quantidadeComputadores.style.display = "block"
+
             grafico_geolocalizacao_ativado = 0;
-            map.style.display = "block"
+            map.style.display = "none"
 
             grafico_cpu_ativado = 0;
             Grafico_Cpu.style.display = "none"
-
-            grafico_quantidade_ativado = 0;
-            Grafico_quantidadeComputadores.style.display = "none"
 
             grafico_principal_ativado = 0;
             Grafico_Principal.style.display = "none"
