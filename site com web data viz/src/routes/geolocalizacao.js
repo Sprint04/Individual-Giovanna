@@ -7,6 +7,10 @@ router.get("/obterDadosGraficoGeolocalizacao/", function (req, res) {
     geolocalizacaoController.buscarUltimasMedidasGEO(req, res);
 })
 
+router.get("/obterDadosGraficoQTD/", function (req, res) {
+    geolocalizacaoController.buscarUltimasMedidasQTD(req, res);
+})
+
 router.get("/obterDadosGraficoCPU/", function (req, res) {
     geolocalizacaoController.buscarUltimasMedidasCPU(req, res);
 })

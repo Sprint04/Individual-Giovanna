@@ -318,3 +318,8 @@ canvas{
   display: flex;
   justify-content: center;
 }
+
+#mapContainer {
+  display: none;
+}
+

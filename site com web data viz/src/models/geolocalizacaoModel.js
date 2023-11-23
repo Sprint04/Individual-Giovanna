@@ -16,6 +16,16 @@ function buscarUltimasMedidasGEO() {
     return database.executar(instrucao);
 }
 
+function buscarUltimasMedidasQTD() {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ")
+    var instrucao = `
+    SELECT endereco, COUNT(fkDispositivo) AS quantidade_de_computadores FROM geolocalizacao GROUP BY endereco;
+    ;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 function buscarUltimasMedidasCPU() {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ")
     var instrucao = `
@@ -48,6 +58,7 @@ function buscarUltimasMedidasDISCO() {
 
 module.exports = {
     buscarUltimasMedidasGEO,
+    buscarUltimasMedidasQTD,
     buscarUltimasMedidasCPU,
     buscarUltimasMedidasRAM,
     buscarUltimasMedidasDISCO

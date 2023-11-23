@@ -56,6 +56,13 @@
                     </div>
                 </button>
 
+
+                <button class="card" onclick="chamar_grafico_quantidadeComputadores()">
+                    <div class="container_dados_botao">
+                        <span class="tipo_componente">Quantidade de ativos</span>
+                    </div>
+                </button>
+
                 <button class="card" onclick="chamar_grafico_cpu()">
                     <div class="container_dados_botao">
                         <span class="tipo_componente">CPU</span>
@@ -91,11 +98,15 @@
                 <div class="grafico">
                     <div id="Grafico_Principal">
                         <div class="img_informacao">
-                            <img id="minhaImagem" src="../assets/novidade.png">
+                            <img id="minhaImagem" src="../assets/novidade.png"> 
                         </div>
                     </div>
-                    <div id='map' style="display: block;width: 100%;height: 100vh;">
+
+                    <div id='map' style="display: none; width: 100%; height: 100vh;">
                     </div>
+
+                    <canvas id="Grafico_quantidadeComputadores" style="display: none;">
+                    </canvas>
                     <canvas id="Grafico_Cpu" style="display: none;">
                     </canvas>
                     <canvas id="Grafico_Ram" style="display: none;">
@@ -139,6 +150,7 @@
 
    sessionStorage.NOME_EMPRESA = "Trackware"
    sessionStorage.NOME_USUARIO = "Cesar"
+    var dadoQTD = 0;
     var dadoGEO = 0;
     var dadoCPU = 0;
     var dadoRAM = 0;
@@ -150,7 +162,7 @@
     window.onload = graficos()
 
     function graficos(){
-        obterDadosGraficoGeolocalizacao()
+        //plotar_grafico_quantidadeComputadores()
         plotar_grafico_cpu()
         plotar_grafico_ram()
         plotar_grafico_disco()
@@ -159,17 +171,22 @@
 
     var grafico_principal_ativado = 1;
     var grafico_geolocalizacao_ativado =0;
+    var grafico_quantidade_ativado = 0;
     var grafico_cpu_ativado = 0;
     var grafico_ram_ativado = 0;
     var grafico_disco_ativado = 0;
 
     function chamar_grafico_geolocalizacao() {
         if (grafico_geolocalizacao_ativado == 0) {
-            grafico_geolocalizacao_ativado = 0;
+            obterDadosGraficoGeolocalizacao();
+            grafico_geolocalizacao_ativado = 1;
             map.style.display = "block"
 
             grafico_cpu_ativado = 0;
             Grafico_Cpu.style.display = "none"
+
+            grafico_quantidade_ativado = 0;
+            Grafico_quantidadeComputadores.style.display = "none"
 
             grafico_principal_ativado = 0;
             Grafico_Principal.style.display = "none"
@@ -186,6 +203,50 @@
 
             grafico_geolocalizacao_ativado = 0;
             map.style.display = "none"
+
+            grafico_quantidade_ativado = 0;
+            Grafico_quantidadeComputadores.style.display = "none"
+
+            grafico_cpu_ativado = 0;
+            Grafico_Cpu.style.display = "none"
+
+            grafico_ram_ativado = 0;
+            Grafico_Ram.style.display = "none"
+
+            grafico_disco_ativado = 0;
+            Grafico_Disco.style.display = "none"
+        }
+    }
+
+    function chamar_grafico_quantidadeComputadores() {
+        if (grafico_geolocalizacao_ativado == 0) {
+            grafico_geolocalizacao_ativado = 0;
+            map.style.display = "block"
+
+            grafico_cpu_ativado = 0;
+            Grafico_Cpu.style.display = "none"
+
+            grafico_quantidade_ativado = 0;
+            Grafico_quantidadeComputadores.style.display = "none"
+
+            grafico_principal_ativado = 0;
+            Grafico_Principal.style.display = "none"
+
+            grafico_ram_ativado = 0;
+            Grafico_Ram.style.display = "none"
+
+            grafico_disco_ativado = 0;
+            Grafico_Disco.style.display = "none"
+
+        } else {
+            grafico_principal_ativado = 1;
+            Grafico_Principal.style.display = "block flex"
+
+            grafico_geolocalizacao_ativado = 0;
+            map.style.display = "none"
+
+            grafico_quantidade_ativado = 0;
+            Grafico_quantidadeComputadores.style.display = "none"
 
             grafico_cpu_ativado = 0;
             Grafico_Cpu.style.display = "none"
@@ -206,6 +267,9 @@
             grafico_geolocalizacao_ativado = 0;
             map.style.display = "none"
 
+            grafico_quantidade_ativado = 0;
+            Grafico_quantidadeComputadores.style.display = "none"
+
             grafico_principal_ativado = 0;
             Grafico_Principal.style.display = "none"
 
@@ -221,6 +285,9 @@
 
             grafico_geolocalizacao_ativado = 0;
             map.style.display = "none"
+
+            grafico_quantidade_ativado = 0;
+            Grafico_quantidadeComputadores.style.display = "none"
 
             grafico_cpu_ativado = 0;
             Grafico_Cpu.style.display = "none"
@@ -241,6 +308,9 @@
             grafico_geolocalizacao_ativado = 0;
             map.style.display = "none"
 
+            grafico_quantidade_ativado = 0;
+            Grafico_quantidadeComputadores.style.display = "none"
+
             grafico_principal_ativado = 0;
             Grafico_Principal.style.display = "none"
 
@@ -255,6 +325,9 @@
 
             grafico_geolocalizacao_ativado = 0;
             map.style.display = "none"
+
+            grafico_quantidade_ativado = 0;
+            Grafico_quantidadeComputadores.style.display = "none"
 
             grafico_cpu_ativado = 0;
             Grafico_Cpu.style.display = "none"
@@ -275,6 +348,9 @@
             grafico_geolocalizacao_ativado = 0;
             map.style.display = "none"
 
+            grafico_quantidade_ativado = 0;
+            Grafico_quantidadeComputadores.style.display = "none"
+
             grafico_principal_ativado = 0;
             Grafico_Principal.style.display = "none"
 
@@ -286,6 +362,9 @@
         } else {
             grafico_principal_ativado = 1;
             Grafico_Principal.style.display = "block flex"
+
+            grafico_quantidade_ativado = 0;
+            Grafico_quantidadeComputadores.style.display = "none"
 
             grafico_geolocalizacao_ativado = 0;
             map.style.display = "none"
@@ -342,6 +421,78 @@
                 //    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
                 //});
         }
+
+        function plotar_grafico_quantidadeComputadores() {
+        obterDadosGraficoQTD()
+
+        function obterDadosGraficoQTD() {
+            fetch(`/geolocalizacao/obterDadosGraficoQTD`, { cache: 'no-store' }).then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        resposta.reverse();
+                        // sessionStorage.DADO_CPU = json.dadoCapturado;
+                        // console.log(sessionStorage.DADO_CPU)
+                        plotarGrafico_QTD(resposta);
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+                .catch(function (error) {
+                    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+                });
+        }
+
+        function plotarGrafico_QTD(resposta) {
+            // Criando estrutura para plotar gráfico - labels
+            let labels = [];
+            // 
+            // Criando estrutura para plotar gráfico - dados
+            let data = {
+                labels: labels,
+                datasets: [{
+                    label: 'Quantidade de Ativos',
+                    data: [],
+                    backgroundColor: ['rgb(0, 99, 140)', 'rgb(0, 99, 90)'],
+                    borderColor: 'purple',
+                    borderwidth: 1
+                }]
+            };
+
+            const config = {
+                type: 'bar',
+                data: data,
+            };
+
+            console.log('iniciando plotagem do gráfico...');
+            const Grafico_QTD = new Chart(
+                document.getElementById('Grafico_QTD'),
+                config
+            );
+
+            // Inserindo valores recebidos em estrutura para plotar o gráfico
+            for (i = 0; i < resposta.length; i++) {
+                var registro = resposta[i];
+                // labels.push(registro.Novo_Testamento);
+                labels.push(registro.endereco);
+                data.datasets[0].data.push(registro.fkDispositivo); // dadoCapturado é o nome da coluna do mySQL
+                // dados.datasets[0].data.push(registro.Novo_Testamento);
+                // dados.datasets[1].data.push(registro.temperatura);
+            }
+
+            var dadoCapturadoQTD = resposta[resposta.length - 1];
+            dadoQTD = dadoCapturadoQTD.endereco;
+            dado_QTD.innerHTML = `${dadoQTD}%`
+            
+
+            console.log('----------------------------------------------')
+            console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+            console.log(resposta)
+        }
+
+        // setInterval(plotarGrafico, 3000);
+    }
 
     function plotar_grafico_cpu() {
         console.log("oi césar")
