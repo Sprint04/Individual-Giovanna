@@ -219,7 +219,7 @@
     }
 
     function chamar_grafico_quantidadeComputadores() {
-        if (grafico_geolocalizacao_ativado == 0) {
+        if ( grafico_quantidade_ativado == 0) {
 
             grafico_quantidade_ativado = 1;
             Grafico_quantidadeComputadores.style.display = "block"
@@ -455,7 +455,13 @@
                 datasets: [{
                     label: 'Quantidade de Ativos',
                     data: [],
-                    backgroundColor: ['rgb(0, 99, 140)', 'rgb(0, 99, 90)'],
+                    backgroundColor: [ 'rgba(75, 0, 130, 0.5)',
+                    'rgba(106, 90, 205, 0.5)',
+                    'rgba(128, 0, 128, 0.5)',
+                    'rgba(148, 0, 211, 0.5)',
+                    'rgba(186, 85, 211, 0.5)',
+                    'rgba(218, 112, 214, 0.5)',
+                    'rgba(255, 0, 255, 0.5)'],
                     borderColor: 'purple',
                     borderwidth: 1
                 }]
@@ -468,7 +474,7 @@
 
             console.log('iniciando plotagem do gráfico...');
             const Grafico_QTD = new Chart(
-                document.getElementById('Grafico_QTD'),
+                document.getElementById('Grafico_quantidadeComputadores'),
                 config
             );
 
@@ -477,15 +483,15 @@
                 var registro = resposta[i];
                 // labels.push(registro.Novo_Testamento);
                 labels.push(registro.endereco);
-                data.datasets[0].data.push(registro.fkDispositivo); // dadoCapturado é o nome da coluna do mySQL
+                data.datasets[0].data.push(registro.quantidade_de_computadores); // dadoCapturado é o nome da coluna do mySQL
                 // dados.datasets[0].data.push(registro.Novo_Testamento);
                 // dados.datasets[1].data.push(registro.temperatura);
             }
+            
 
             var dadoCapturadoQTD = resposta[resposta.length - 1];
-            dadoQTD = dadoCapturadoQTD.endereco;
-            dado_QTD.innerHTML = `${dadoQTD}%`
-            
+            dadoQTD = dadoCapturadoQTD.quantidade_de_computadores
+        
 
             console.log('----------------------------------------------')
             console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
@@ -550,14 +556,16 @@
                 var registro = resposta[i];
                 // labels.push(registro.Novo_Testamento);
                 labels.push(registro.dataHoraCaptura);
-                data.datasets[0].data.push(registro.porcentagemUsoCPU); // dadoCapturado é o nome da coluna do mySQL
+                data.datasets[0].data.push(registro.mediaCPU); // dadoCapturado é o nome da coluna do mySQL
                 // dados.datasets[0].data.push(registro.Novo_Testamento);
                 // dados.datasets[1].data.push(registro.temperatura);
             }
 
             var dadoCapturadoCPU = resposta[resposta.length - 1];
-            dadoCPU = dadoCapturadoCPU.porcentagemUsoCPU;
+            dadoCPU = dadoCapturadoCPU.mediaCPU;
+            
             dado_CPU.innerHTML = `${dadoCPU}%`
+            document.getElementById('dado_CPU').innerHTML = `${dadoCPU.toFixed(2)}%`;
             
 
             console.log('----------------------------------------------')
@@ -617,23 +625,28 @@
                 config
             );
 
+            
+
             // Inserindo valores recebidos em estrutura para plotar o gráfico
             for (i = 0; i < resposta.length; i++) {
                 var registro = resposta[i];
                 // labels.push(registro.Novo_Testamento);
                 labels.push(registro.dtHora);
-                data.datasets[0].data.push(registro.dadoCapturado); // dadoCapturado é o nome da coluna do mySQL
+                data.datasets[0].data.push(registro.mediaRAM.toFixed(2)); // dadoCapturado é o nome da coluna do mySQL
                 // dados.datasets[0].data.push(registro.Novo_Testamento);
                 // dados.datasets[1].data.push(registro.temperatura);
             }
 
             var dadoCapturadoRAM = resposta[resposta.length - 1];
-            dadoRAM = dadoCapturadoRAM.dadoCapturado;
-            dado_RAM.innerHTML = `${dadoRAM}%`
+            dadoRAM = dadoCapturadoRAM.mediaRAM;
+            var dadoRAMFormatado = dadoRAM.toFixed(2);
+            dado_RAM.innerHTML = `${dadoRAMFormatado}%`
 
             console.log('----------------------------------------------')
             console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
             console.log(resposta)
+
+        
         }
 
         // setInterval(plotarGrafico, 3000);
@@ -693,14 +706,17 @@
                 var registro = resposta[i];
                 // labels.push(registro.Novo_Testamento);
                 labels.push(registro.dtHora);
-                data.datasets[0].data.push(registro.dadoCapturado); // dadoCapturado é o nome da coluna do mySQL
+                data.datasets[0].data.push(registro.mediaDISCO.toFixed(2)); // dadoCapturado é o nome da coluna do mySQL
                 // dados.datasets[0].data.push(registro.Novo_Testamento);
                 // dados.datasets[1].data.push(registro.temperatura);
             }
 
             var dadoCapturadoDISCO = resposta[resposta.length - 1];
-            dadoDISCO = dadoCapturadoDISCO.dadoCapturado;
-            dado_DISCO.innerHTML = `${dadoDISCO}%`
+            dadoDISCO = dadoCapturadoDISCO.mediaDISCO;
+            var dadoDISCOFormatado = dadoDISCO.toFixed(2);
+            dado_DISCO.innerHTML = `${dadoDISCOFormatado}%`
+
+        
 
             console.log('----------------------------------------------')
             console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
