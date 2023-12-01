@@ -60,7 +60,7 @@ except Exception as e:
         val nomearquivo = "CodigoPythonTeste.py"
 
         File(nomearquivo).writeText(codigoPython)
-        Runtime.getRuntime().exec("py $nomearquivo")
+        Runtime.getRuntime().exec("python3 $nomearquivo")
 
     }
 }
